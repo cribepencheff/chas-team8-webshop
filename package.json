@@ -1,0 +1,11 @@
+{
+  "name": "chas-team8-webshop",
+  "version": "1.0.0",
+  "description": "chas academy team8 webshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
