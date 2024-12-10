@@ -1,19 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./dist/styles.min.css">
-  <script type="module" src="./src/js/app.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Webshop</title>
+  </head>
 <body>
-<select name="categories" id="cat">
-  <option value="mens clothing ">Mens clothing</option>
-  <option value="womens clothing ">Womans clothing</option>
-  <option value="jewelery ">Jewelery</option>
-  <option value="electronics ">Electronics</option>
-</select>
+<body>
+  <header class ="header">
+    <h1>LOGO</h1>
+    <input type="text">  <!--Extra feature search bar if needed-->
+    <button class="cart-button">
+      <span class="cart-icon"><img src="/Webshop icons/icons8-shopping-cart-24.png" alt=""></span>
+      <span class="item-count">3</span>
+    </button>
+  </header>
+  <main>
+    <!-- Filters Section -->
+    <section class="filters">
+      <h2>Filter Products</h2>
+      <form>
+        <label for="sort-options">Sort Products:</label>
+        <select name="sort-options" id="sort-options">
+          <option value="price-asc">Sort by Price: Low to High</option>
+          <option value="price-desc">Sort by Price: High to Low</option>
+          <option value="rating">Sort by Rating</option>
+        </select>
+      </form>
+    </section>
 
+    <!-- Categories Section -->
+    <section class="categories">
+      <h2>Categories</h2>
+      <form>
+        <label for="categories">Choose a Category:</label>
+        <select name="categories" id="categories">
+          <option value="mens-clothing">Men's Clothing</option>
+          <option value="womens-clothing">Women's Clothing</option>
+          <option value="jewelry">Jewelry</option>
+          <option value="electronics">Electronics</option>
+        </select>
+      </form>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products">
+      <h2>Products</h2>
+      <article class="product">
+        <img src="placeholder.jpg" alt="Product Image: Product title" />
+        <h3>Product Title</h3>
+        <p>Product Description</p>
+        <p>Price: $XX.XX</p>
+        <p>Rating: ★★★★☆</p>
+        <button>Add to Cart</button>
+      </article>
+
+      <article class="product">
+        <img src="placeholder.jpg" alt="Product Image: Product title" />
+        <h3>Product Title</h3>
+        <p>Product Description</p>
+        <p>Price: $XX.XX</p>
+        <p>Rating: ★★★☆☆</p>
+        <button>Add to Cart</button>
+      </article>
+    </section>
+  </main>
+
+ 
+  
+  <!--cart modal can be removed if not needed-->
+  <dialog id ="modal">
+    <h2>hello world</h2>
+  </dialog>
+
+<footer>
+    <div class="footer-container">
+      <!-- Company Logo and Description -->
+      <div class="footer-section">
+        <img src="logo.png" alt="Company Logo" class="logo">
+        <p>Specializes in providing high-quality, stylish products for you</p>
+      </div>
+
+      <!-- Shop Section -->
+      <div class="footer-section">
+        <h4>SHOP</h4>
+        <ul>
+          <li><a href="#">All Collections</a></li>
+          <li><a href="#">Winter Edition</a></li>
+          <li><a href="#">Discounts</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Section -->
+      <div class="footer-section">
+        <h4>COMPANY</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Affiliates</a></li>
+        </ul>
+      </div>
+
+      <!-- Support Section -->
+      <div class="footer-section">
+        <h4>SUPPORT</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+
+      <!-- Payment Methods -->
+      <div class="footer-section">
+        <h4>PAYMENT METHODS</h4>
+        <img src="/Webshop icons/icons8-visa-48.png" alt="Visa" class="payment-icon">
+        <img src="/Webshop icons/icons8-mastercard-48.png" alt="MasterCard" class="payment-icon">
+        <img src="/Webshop icons/icons8-paypal-48.png" alt="PayPal" class="payment-icon">
+      </div>
+    </div>
+    <p class="footer-copyright">Copyright © 2024. All rights reserved.</p>
+  </footer>
+    
+
+
+  </footer>
+  <script src="/js/fetchData.js"></script>
+</body>
+</html>
 </body>
 </html>
