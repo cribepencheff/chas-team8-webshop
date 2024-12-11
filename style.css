@@ -26,7 +26,6 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    border: 2px solid red;
     padding: 10px;
     margin: 10px;
   }
@@ -35,6 +34,7 @@
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
+    background-color: grey;
   }
   
   .products {
@@ -49,8 +49,15 @@
     border: 1px solid black;
     border-radius: 6px;
     padding: 20px;
-    text-align: center;
+    text-align: left;
+    grid-template-rows: subgrid;
   }
+
+  .product-links {
+    display: flex;
+    justify-content: space-between;
+  }
+  
   
   img {
     max-width: 100%;
@@ -62,8 +69,10 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: white;
     border-top: 2px solid #ddd;
+    border: 2px solid red;
+    text-align: center;
   }
   
   .footer-section h4 {
@@ -84,4 +93,40 @@
     width: 48px;
     height: auto;
   }
+  
+
+  /* Add to your stylesheet */
+.cart-button, .wish-button {
+    position: relative;
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .cart-icon, .wish-icon {
+    display: inline-block;
+  }
+  
+  .item-count, .wish-count {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer-copyright {
+    text-align: center;
+  }
+
+
   

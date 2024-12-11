@@ -7,16 +7,37 @@
     <title>Webshop</title>
   </head>
   <body>
+
+
     <header class="header">
       <h1>LOGO</h1>
-      <input type="text" placeholder="Search for products" />
-      <button class="cart-button">
-        <span class="cart-icon"><img src="/Webshop icons/icons8-shopping-cart-24.png" alt="Cart Icon" /></span>
-        <span class="item-count">3</span>
-      </button>
+      <div class="search-container">
+        <input id="search-bar" type="text" placeholder="Search for products" />
+        <button id="search">search</button>
+      </div>
+
+      <div class="cart-wish">
+        <button class="wish-button">
+          <span class="wish-icon"
+            ><img src="/Webshop icons/icons8-heart-24.png" alt="wishlist-icon"
+          /></span>
+          <span class="wish-count"></span>
+        </button>
+
+        <button class="cart-button">
+          <span class="cart-icon"
+            ><img
+              src="/Webshop icons/icons8-shopping-cart-24.png"
+              alt="Cart Icon"
+          /></span>
+          <span class="item-count"></span>
+        </button>
+      </div>
     </header>
+
     <main>
       <section class="container">
+
         <!-- Filters Section -->
         <section class="filters">
           <h2>Filter Products</h2>
@@ -47,15 +68,27 @@
 
       <!-- Products Section -->
       <h2>Products</h2>
+
       <section class="products">
         <article class="product">
           <img src="/Webshop icons/no img.jpg" alt="Product Image" />
           <h3>Product Title</h3>
-          <p>Product Description</p>
-          <p>Price: $XX.XX</p>
-          <p>Rating: ★★★★☆</p>
-          <button>Add to Cart</button>
+          <p>
+            Deserunt nostrud sunt velit qui quis deserunt duis. Sint ad mollit
+            ea consectetur mollit. Amet incididunt incididunt dolore ullamco
+            reprehenderit. Qui et Lorem ut eu cupidatat nostrud culpa magna sunt
+            incididunt amet dolore proident.
+          </p>
+          <button>
+            <img src="/Webshop icons/icons8-shopping-cart-24.png" alt="" />
+          </button>
+          <div class="product-links">
+            <p>Price: $19.22</p>
+            <p>Rating: ★★★★☆</p>
+
+          </div>
         </article>
+
         <article class="product">
           <img src="/Webshop icons/no img.jpg" alt="Product Image" />
           <h3>Product Title</h3>
@@ -85,9 +118,9 @@
 
     <footer>
       <div class="footer-container">
-        <!-- Company Logo and Description -->
+
         <div class="footer-section">
-          <img src="logo.png" alt="Company Logo" class="logo" />
+          <h1>LOGO</h1>
           <p>Specializes in providing high-quality, stylish products for you</p>
         </div>
 
@@ -124,13 +157,26 @@
         <!-- Payment Methods -->
         <div class="footer-section">
           <h4>PAYMENT METHODS</h4>
-          <img src="/Webshop icons/icons8-visa-48.png" alt="Visa" class="payment-icon" />
-          <img src="/Webshop icons/icons8-mastercard-48.png" alt="MasterCard" class="payment-icon" />
-          <img src="/Webshop icons/icons8-paypal-48.png" alt="PayPal" class="payment-icon" />
+          <img
+            src="/Webshop icons/icons8-visa-48.png"
+            alt="Visa"
+            class="payment-icon"
+          />
+          <img
+            src="/Webshop icons/icons8-mastercard-48.png"
+            alt="MasterCard"
+            class="payment-icon"
+          />
+          <img
+            src="/Webshop icons/icons8-paypal-48.png"
+            alt="PayPal"
+            class="payment-icon"
+          />
         </div>
       </div>
+      
       <p class="footer-copyright">Copyright © 2024. All rights reserved.</p>
     </footer>
-    <script src="/js/fetchData.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>
