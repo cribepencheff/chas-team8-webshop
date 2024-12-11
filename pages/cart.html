@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <header>
+    <h1>Cart</h1>
+    <h2 id="itemCounter">4 items</h2>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+    <button id=""> X </button>
+   </header>
+   <main>
+    <section class="cartContainer">
+        <section class="cart_listWrapper">
+            <div class="cart_list">
+                <ul>
+                    <li class="CartItem">
+                        <img class="itemImage" src="" alt="">
+                        <div class="itemTitleWrapper">
+                            <span class="itemTitle">title</span>
+                            <p class="itemDescription">description</p>
+                        </div>
+                        <div class="itemCountWrapper">
+                            <button class="itemCountBtn"> - </button>
+                            <span class="itemCountCounter"></span>
+                            <button class="itemCountBtn"> + </button>
+                        </div>
+                        <button class="removeItemBtn">remove</button>
+                    </li>
+                </ul>
+            </div>
+            <section class="cart_priceWrapper">
+                <div>
+                    <p>Subtotal:</p>
+                    <h3 class="cart_totalAmount"></h3>
+                </div>
+                <button class="cart_checkoutButton">Proceed to payment</button>
+            </section>
+        </section>
+    </section>
+   </main>
+
+    <script src=""></script>
+</body>
+</html>

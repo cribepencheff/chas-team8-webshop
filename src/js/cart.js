@@ -39,7 +39,7 @@ const showItems = (passData) => {
 // -------------------------------------------------------------------------------------------------- 
 // --------------------------------------------------------------------------------------------------     
 
-console.log(globalData);
+
 
 let cartItemCountLS = () => {
     const getLSitems = JSON.parse(localStorage.getItem("cartList"))
@@ -71,11 +71,7 @@ const getById = (id) => {
     return items
     }
 
-    // getData().then(() => {  // when the function has fetched all the data, it continues with .then and calls the getById function
-    //     const item = getById();
-    //     console.log("Retrieved item:", item);
 
-// });
 
        
 
