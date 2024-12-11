@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/style.css" />
-    <title>Webshop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="./src/js/app.js" type="module"></script>
   </head>
+  
   <body>
 
 
@@ -40,80 +43,34 @@
 
         <!-- Filters Section -->
         <section class="filters">
-          <h2>Filter Products</h2>
-          <form>
-            <label for="sort-options">Sort Products:</label>
-            <select name="sort-options" id="sort-options">
-              <option value="price-asc">Sort by Price: Low to High</option>
-              <option value="price-desc">Sort by Price: High to Low</option>
-              <option value="rating">Sort by Rating</option>
-            </select>
-          </form>
+          <select name="sort" id="sort-select">
+            <option value="none">No sort</option>
+            <option value="ascending">Price, low to high</option>
+            <option value="descending">Price, high to low</option>
+          </select>
         </section>
 
         <!-- Categories Section -->
         <section class="categories">
-          <h2>Categories</h2>
-          <form>
-            <label for="categories">Choose a Category:</label>
-            <select name="categories" id="categories">
-              <option value="mens-clothing">Men's Clothing</option>
-              <option value="womens-clothing">Women's Clothing</option>
-              <option value="jewelry">Jewelry</option>
-              <option value="electronics">Electronics</option>
-            </select>
-          </form>
+          <select name="categories" id="filter-select">
+            <option value="all">All products</option>
+            <option value="women's clothing">Women's Clothing</option>
+            <option value="men's clothing">Men's Clothing</option>
+            <option value="electronics">Electronics</option>
+            <option value="jewelery">Jewelery</option>
+          </select>
         </section>
       </section>
 
       <!-- Products Section -->
       <h2>Products</h2>
 
-      <section class="products">
-        <article class="product">
-          <img src="/Webshop icons/no img.jpg" alt="Product Image" />
-          <h3>Product Title</h3>
-          <p>
-            Deserunt nostrud sunt velit qui quis deserunt duis. Sint ad mollit
-            ea consectetur mollit. Amet incididunt incididunt dolore ullamco
-            reprehenderit. Qui et Lorem ut eu cupidatat nostrud culpa magna sunt
-            incididunt amet dolore proident.
-          </p>
-          <button>
-            <img src="/Webshop icons/icons8-shopping-cart-24.png" alt="" />
-          </button>
-          <div class="product-links">
-            <p>Price: $19.22</p>
-            <p>Rating: ★★★★☆</p>
-
-          </div>
-        </article>
-
-        <article class="product">
-          <img src="/Webshop icons/no img.jpg" alt="Product Image" />
-          <h3>Product Title</h3>
-          <p>Product Description</p>
-          <p>Price: $XX.XX</p>
-          <p>Rating: ★★★★☆</p>
-          <button>Add to Cart</button>
-        </article>
-        <article class="product">
-          <img src="/Webshop icons/no img.jpg" alt="Product Image" />
-          <h3>Product Title</h3>
-          <p>Product Description</p>
-          <p>Price: $XX.XX</p>
-          <p>Rating: ★★★★☆</p>
-          <button>Add to Cart</button>
-        </article>
-        <article class="product">
-          <img src="/Webshop icons/no img.jpg" alt="Product Image" />
-          <h3>Product Title</h3>
-          <p>Product Description</p>
-          <p>Price: $XX.XX</p>
-          <p>Rating: ★★★★☆</p>
-          <button>Add to Cart</button>
-        </article>
-      </section>
+ 
+      <section id="items-container" class="products"></section>
+      
+      <div id="loader" class="hide">
+        <img src="./assets/images/spinner.svg" alt="Loading..." />
+      </div>
     </main>
 
     <footer>
