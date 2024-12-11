@@ -3,45 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Website</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Team 8 | Webshop</title>
+    <link rel="stylesheet" href="./dist/styles.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="./src/js/app.js" type="module"></script>
   </head>
-  
+
   <body>
-
-
     <header class="header">
       <h1>LOGO</h1>
-      <div class="search-container">
-        <input id="search-bar" type="text" placeholder="Search for products" />
-        <button id="search">search</button>
-      </div>
 
       <div class="cart-wish">
-        <button class="wish-button">
-          <span class="wish-icon"
-            ><img src="/Webshop icons/icons8-heart-24.png" alt="wishlist-icon"
-          /></span>
-          <span class="wish-count"></span>
+        <button id="wish-button">
+          <img src="./src/images/icons/icons8-heart-24.png" alt="wishlist-icon"/>
+          <span id="wish-count" class="hide"></span>
         </button>
 
-        <button class="cart-button">
-          <span class="cart-icon"
-            ><img
-              src="/Webshop icons/icons8-shopping-cart-24.png"
-              alt="Cart Icon"
-          /></span>
-          <span class="item-count"></span>
+        <button id="cart-button">
+          <img src="./src/images/icons/icons8-shopping-cart-24.png" alt="Cart Icon" />
+          <span id="item-count" class="hide"></span>
         </button>
       </div>
     </header>
 
     <main>
       <section class="container">
-
-        <!-- Filters Section -->
         <section class="filters">
           <select name="sort" id="sort-select">
             <option value="none">No sort</option>
@@ -50,7 +36,6 @@
           </select>
         </section>
 
-        <!-- Categories Section -->
         <section class="categories">
           <select name="categories" id="filter-select">
             <option value="all">All products</option>
@@ -62,78 +47,12 @@
         </section>
       </section>
 
-      <!-- Products Section -->
       <h2>Products</h2>
-
- 
       <section id="items-container" class="products"></section>
-      
+
       <div id="loader" class="hide">
-        <img src="./assets/images/spinner.svg" alt="Loading..." />
+        <img src="./src/images/spinner.svg" alt="Loading..." />
       </div>
     </main>
-
-    <footer>
-      <div class="footer-container">
-
-        <div class="footer-section">
-          <h1>LOGO</h1>
-          <p>Specializes in providing high-quality, stylish products for you</p>
-        </div>
-
-        <!-- Shop Section -->
-        <div class="footer-section">
-          <h4>SHOP</h4>
-          <ul>
-            <li><a href="#">All Collections</a></li>
-            <li><a href="#">Winter Edition</a></li>
-            <li><a href="#">Discounts</a></li>
-          </ul>
-        </div>
-
-        <!-- Company Section -->
-        <div class="footer-section">
-          <h4>COMPANY</h4>
-          <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Affiliates</a></li>
-          </ul>
-        </div>
-
-        <!-- Support Section -->
-        <div class="footer-section">
-          <h4>SUPPORT</h4>
-          <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Cookie Policy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-          </ul>
-        </div>
-
-        <!-- Payment Methods -->
-        <div class="footer-section">
-          <h4>PAYMENT METHODS</h4>
-          <img
-            src="/Webshop icons/icons8-visa-48.png"
-            alt="Visa"
-            class="payment-icon"
-          />
-          <img
-            src="/Webshop icons/icons8-mastercard-48.png"
-            alt="MasterCard"
-            class="payment-icon"
-          />
-          <img
-            src="/Webshop icons/icons8-paypal-48.png"
-            alt="PayPal"
-            class="payment-icon"
-          />
-        </div>
-      </div>
-      
-      <p class="footer-copyright">Copyright © 2024. All rights reserved.</p>
-    </footer>
-    <script src="/script.js"></script>
   </body>
 </html>

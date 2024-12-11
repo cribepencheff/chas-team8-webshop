@@ -5,10 +5,10 @@ async function getProducts() {
     // console.log(data);
     // allProducts = data;
     return data;
-   
+
   } catch (error) {
     console.log("error", error);
   }
 }
 
-export {getProducts}
+export { getProducts }

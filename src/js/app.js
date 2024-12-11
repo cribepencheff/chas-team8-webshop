@@ -34,13 +34,13 @@ async function displayProducts() {
       (item) =>
         `<article class="product">
           <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
-          <h3>${item.title}</h3>
-          <p>${item.description}</p>
-         <button id="add-to-cart-${item.id}">Add to cart</button>
-          
-         <div class="product-links">
-            <p> Price: $${item.price}</p>
-            <p>Rating: ★★★★☆</p>
+          <h3 class="truncate">${item.title}</h3>
+          <p class="truncate">${item.description}</p>
+          <button id="add-to-cart-${item.id}">Add to cart</button>
+
+          <div class="product-links">
+            <p>Price: $${item.price}</p>
+            <p>Rating: ★ ${item.rating.rate}</p>
           </div>
         </article>`
     )
