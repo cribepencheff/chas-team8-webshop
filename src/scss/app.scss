@@ -1,5 +1,6 @@
 @use './partials/variables.scss' as *;
 @use './partials/helpers.scss' as *;
+@use './partials/cart.scss' as *;
 
 body {
   background-color: $color-bg;
