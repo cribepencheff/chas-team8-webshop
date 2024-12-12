@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="webshop cart ">
+    <title>Your Cart </title>
+</head>
+<body>
+   <header>
+    <h1 class="cartTitle">Cart</h1>
+    <span id="itemCounter">(4 items)</span>
+    <nav>
+        <ul >
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+    <button id=""> X </button>
+   </header>
+   <main>
+    <section class="cartContainer">
+        <section class="cart_listWrapper">
+            <div class="cart_list">
+                <ul class="ul">
+                </ul>
+            </div>
+            <section class="cart_priceWrapper">
+                <div>
+                    <p>Subtotal:</p>
+                    <h3 class="cart_totalAmount">$ </h3>
+                </div>
+                <button class="cart_checkoutButton">Proceed to payment</button>
+            </section>
+        </section>
+    </section>
+   </main>
+
+   <script src="/src/js/cart.js" type="module"></script>
+    <script src="/src/js/addToCartFunc.js" type="module"></script>
+</body>
+</html>
