@@ -16,7 +16,7 @@ let listContainer = document.querySelector(".ul")
                                 <button class="itemCountBtn"> + </button>
                             </div>
                             <h3 class="itemPrice">$ ${items.price} </h3>
-                            <img id="removeItemBtn" src="/Webshop icons/icons8-trash-128.png"/>
+                            <img id="removeItemBtn" src="../src/images/icons/icons8-trash-128.png"/>
                         </li>`
     )).join(" ")
 

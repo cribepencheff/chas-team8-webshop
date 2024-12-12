@@ -1,10 +1,10 @@
-import { getData } from "./services/apiService.js"
+import { getProducts } from "./services/apiService.js"
 if (!localStorage.getItem("cartList")) { 
     localStorage.setItem("cartList", JSON.stringify([]))
 }
 let cartCount = document.querySelector(".count") 
 let productContainer = document.getElementById("posts") // change element when add to official code
-let globalData = await getData()
+let globalData = await getProducts()
 
 
 
