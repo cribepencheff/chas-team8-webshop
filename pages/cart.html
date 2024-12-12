@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="webshop cart ">
+    <title>Your Cart </title>
 </head>
 <body>
    <header>
-    <h1>Cart</h1>
-    <h2 id="itemCounter">4 items</h2>
+    <h1 class="cartTitle">Cart</h1>
+    <span id="itemCounter">(4 items)</span>
     <nav>
-        <ul>
+        <ul >
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="cart.html">Cart</a></li>
@@ -22,8 +23,8 @@
     <section class="cartContainer">
         <section class="cart_listWrapper">
             <div class="cart_list">
-                <ul>
-                    <li class="CartItem">
+                <ul class="ul">
+                    <!-- <li class="CartItem">
                         <img class="itemImage" src="" alt="">
                         <div class="itemTitleWrapper">
                             <span class="itemTitle">title</span>
@@ -34,14 +35,15 @@
                             <span class="itemCountCounter"></span>
                             <button class="itemCountBtn"> + </button>
                         </div>
-                        <button class="removeItemBtn">remove</button>
-                    </li>
+                        <h3 class="itemPrice">$ </h3>
+                        <img id="removeItemBtn" src="/Webshop icons/icons8-trash-128.png"/>
+                    </li> -->
                 </ul>
             </div>
             <section class="cart_priceWrapper">
                 <div>
                     <p>Subtotal:</p>
-                    <h3 class="cart_totalAmount"></h3>
+                    <h3 class="cart_totalAmount">$ </h3>
                 </div>
                 <button class="cart_checkoutButton">Proceed to payment</button>
             </section>
@@ -49,6 +51,7 @@
     </section>
    </main>
 
-    <script src=""></script>
+   <script src="/src/js/cart.js" type="module"></script>
+    <script src="/src/js/addToCartFunc.js" type="module"></script>
 </body>
 </html>
