@@ -16,11 +16,6 @@ $color-alert: $color-red;
 $color-success: $color-green;
 $color-success-lgt: color.adjust($color-green, $lightness: 40%, $saturation: -10%);
 
-// Spacing
-$spacing-sm: 0.5rem;
-$spacing-md: 1rem;
-$spacing-lg: 2rem;
-
 // Typography
 $text-base: 16px;
 
@@ -35,3 +30,15 @@ $text-heading-sm: 1.25rem;
 $text-heading-md: 1.5rem;
 $text-heading-lg: 1.625rem;
 $text-heading-xl: 1.875rem;
+
+// Spacing
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+// Container widths
+$max-width-xl: 90rem;
+$max-width-lg: 75rem;
+
+// Media queries
+$mobile-down: "width < 48rem";

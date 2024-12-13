@@ -1,0 +1,30 @@
+@use './variables' as *;
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: $color-primary;
+  display: flex;
+  justify-content: center;
+
+  h1 > a {
+    display: flex;
+    align-items: center;
+  }
+
+  > div[class$="inner"] {
+    max-width: $max-width-xl;
+    padding: $spacing-md;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 1 auto;
+  }
+
+  .header-logo {
+    @media (#{$mobile-down}) {
+      width: 184px;
+      height: 26px;
+    }
+  }
+}

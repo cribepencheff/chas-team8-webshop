@@ -3,15 +3,8 @@
 @use './partials/variables' as *;
 @use './partials/typography' as *;
 @use './partials/helpers' as *;
+@use './partials/header' as *;
 @use './partials/cart' as *;
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #f4f4f4;
-}
 
 .header h1 {
   margin-right: 10px;
