@@ -1,2 +1,37 @@
-$white: #ffffff;
-$color-bg: $white;
+@use 'sass:color';
+
+// Colors
+$color-white: #ffffff;
+$color-blue: #0845F5;
+$color-red: #FF3131;
+$color-green: #4DCB83;
+
+// CoreColors
+$color-bg: $color-white;
+$color-body: #495469;
+$color-heading: #1D2129;
+$color-primary: $color-blue;
+$color-primary-hover: color.adjust($color-primary, $lightness: -15%, $saturation: 10%);
+$color-alert: $color-red;
+$color-success: $color-green;
+$color-success-lgt: color.adjust($color-green, $lightness: 40%, $saturation: -10%);
+
+// Spacing
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+// Typography
+$text-base: 16px;
+
+$text-body-tiny: 0.625rem;
+$text-body-xs: 0.75rem;
+$text-body-sm: 0.875rem;
+$text-body-md: 1rem;
+$text-body-lg: 1.25rem;
+
+$text-heading-xs: 0.875rem;
+$text-heading-sm: 1.25rem;
+$text-heading-md: 1.5rem;
+$text-heading-lg: 1.625rem;
+$text-heading-xl: 1.875rem;

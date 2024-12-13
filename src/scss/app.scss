@@ -1,21 +1,9 @@
-@use './partials/variables.scss' as *;
-@use './partials/helpers.scss' as *;
-@use './partials/cart.scss' as *;
-
-body {
-  background-color: $color-bg;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-}
+@use './partials/reset' as *;
+@use './partials/fonts' as *;
+@use './partials/variables' as *;
+@use './partials/typography' as *;
+@use './partials/helpers' as *;
+@use './partials/cart' as *;
 
 .header {
   display: flex;

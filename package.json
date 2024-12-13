@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "sass src/scss/app.scss dist/styles.min.css --style compressed",
-    "watch": "sass --watch src/scss/app.scss:dist/styles.min.css"
+    "watch": "sass --watch --style compressed src/scss/app.scss:dist/styles.min.css"
   },
   "author": "",
   "license": "ISC",
