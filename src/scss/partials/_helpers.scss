@@ -1,3 +1,17 @@
+@use './variables' as *;
+
+.hide-sm-down {
+  @media #{$small-down} {
+    display: none !important;
+  }
+}
+
+.hide-md-up {
+  @media #{$medium-up} {
+    display: none !important;
+  }
+}
+
 .hide {
   display: none !important;
 }

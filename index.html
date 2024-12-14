@@ -35,7 +35,7 @@
             <span id="wish-count" class="hide"></span>
           </button> -->
 
-          <button class="cta cta-inverted" id="cart-button">
+          <button class="cta-inverted" id="cart-button">
             Cart
             <img src="./src/images/icons/shopping-bag-drk.svg" width="24" height="24" alt="Cart">
             <span class="count-badge hide" id="item-count">1</span>
@@ -45,27 +45,37 @@
     </header>
 
     <main>
-      <section class="container page-title">
-        <section class="filters">
-          <select name="sort" id="sort-select">
-            <option value="none">No sort</option>
-            <option value="ascending">Price, low to high</option>
-            <option value="descending">Price, high to low</option>
-          </select>
-        </section>
+      <section class="page-header">
+        <div class="page-title-inner">
+          <h2 class="page-title hide-sm-down">
+            Products
+          </h2>
 
-        <section class="categories">
-          <select name="categories" id="filter-select">
-            <option value="all">All products</option>
-            <option value="women's clothing">Women's Clothing</option>
-            <option value="men's clothing">Men's Clothing</option>
-            <option value="electronics">Electronics</option>
-            <option value="jewelery">Jewelery</option>
-          </select>
-        </section>
+          <div class="dropdown-container">
+            <select name="sort" class="cta-inverted" id="sort-select">
+              <option value="none">No sort</option>
+              <option value="ascending">Price, low to high</option>
+              <option value="descending">Price, high to low</option>
+            </select>
+            <img src="./src/images/icons/sort-drk.svg" width="24" height="24" alt="Chevron down">
+          </div>
+
+          <div class="dropdown-container">
+            <select name="categories" class="cta-inverted" id="filter-select">
+              <option value="all">All products</option>
+              <option value="women's clothing">Women's Clothing</option>
+              <option value="men's clothing">Men's Clothing</option>
+              <option value="electronics">Electronics</option>
+              <option value="jewelery">Jewelery</option>
+            </select>
+            <img src="./src/images/icons/settings-drk.svg" width="24" height="24" alt="Chevron down">
+          </div>
+        </div>
       </section>
 
-      <h2>Products</h2>
+      <h2 class="page-title hide-md-up">
+        Products
+      </h2>
 
       <section id="items-container" class="products"></section>
 

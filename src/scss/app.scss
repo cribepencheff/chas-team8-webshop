@@ -7,19 +7,37 @@
 @use './partials/header' as *;
 @use './partials/cart' as *;
 
-.container.page-title {
+.page-header {
   margin: 0;
   position: sticky;
-  top: 4.8125rem;
-}
-
-.filters,
-.categories {
-  display: flex;
+  top: 4.75rem;
+  background-color: $color-white;
   align-items: center;
-  gap: 10px;
-  padding: 10px;
-  margin: 10px;
+
+  .dropdown-container {
+    @media #{$small-down} {
+      display: flex;
+      flex-basis: 50%;
+    }
+
+    [id$="select"] {
+      border-radius: calc($spacing-sm * 0.5);
+      @media #{$small-down} {
+        width: 100%;
+      }
+    }
+  }
+
+  .page-title {
+    margin-right: auto;
+  }
+
+  > div[class$="inner"] {
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+
 }
 
 .container {
