@@ -1,2 +1,56 @@
-$white: #ffffff;
-$color-bg: $white;
+@use 'sass:color';
+
+// Colors
+$color-white: #ffffff;
+$color-blue: #0845F5;
+$color-red: #FF3131;
+$color-green: #4DCB83;
+
+// CoreColors
+$color-bg: $color-white;
+$color-body: #495469;
+$color-heading: #1D2129;
+$color-primary: $color-blue;
+$color-primary-hover: color.adjust($color-primary, $lightness: -15%, $saturation: 10%);
+$color-alert: $color-red;
+$color-success: $color-green;
+$color-success-lgt: color.adjust($color-green, $lightness: 40%, $saturation: -10%);
+
+// Typography
+$text-base: 16px;
+
+$text-body-tiny: 0.625rem;
+$text-body-xs: 0.75rem;
+$text-body-sm: 0.875rem;
+$text-body-md: 1rem;
+$text-body-lg: 1.25rem;
+
+$text-heading-xs: 0.875rem;
+$text-heading-sm: 1.25rem;
+$text-heading-md: 1.5rem;
+$text-heading-lg: 1.625rem;
+$text-heading-xl: 1.875rem;
+
+$font-family-medium: "GeneralSans-Medium", Helvetica, Arial, sans-serif;
+$font-family-semibold: "GeneralSans-Semibold", Helvetica, Arial, sans-serif;
+$font-family-bold: "GeneralSans-Bold", Helvetica, Arial, sans-serif;
+
+// Spacing
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+
+// Container widths
+$max-width-xl: 90rem;
+$max-width-lg: 75rem;
+
+// Media queries
+
+$xsmall: "(width < 37.5rem)";
+$small-down: "(width < 48rem)";
+$medium-up: "(width >= 48rem)";
+$medium: "(width < 62.5rem) and (width >= 48rem)";
+$medium-down: "(width < 62.5rem)";
+$large-up: "(width >= 62.5rem)";
+$xlarge-up: "(width >= 75rem)";
+

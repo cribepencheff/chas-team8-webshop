@@ -36,7 +36,7 @@ async function displayProducts() {
           <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
           <h3 class="truncate">${item.title}</h3>
           <p class="truncate">${item.description}</p>
-          <button id="add-to-cart-${item.id}">Add to cart</button>
+          <button data-id="${item.id}">Add to cart</button>
 
           <div class="product-links">
             <p>Price: $${item.price}</p>
@@ -49,6 +49,14 @@ async function displayProducts() {
   itemsContainerEl.innerHTML = productsList;
   itemsContainerEl.classList.remove("hide");
   loaderEl.classList.add("hide");
+
+  const productsButtons = itemsContainerEl.querySelectorAll("button");
+  productsButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Catch Product ID
+      console.log(button.dataset.id);
+    })
+  });
 }
 
 displayProducts();
