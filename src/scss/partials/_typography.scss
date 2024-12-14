@@ -1,12 +1,12 @@
 @use './variables' as *;
 
 body {
-  font-family: "GeneralSans-Medium", Helvetica, Arial, sans-serif;
+  font-family: $font-family-medium;
   color: $color-body;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "GeneralSans-Bold", Helvetica, Arial, sans-serif;
+  font-family: $font-family-bold;
   font-weight: normal;
   color: $color-heading;
   line-height: 1.35;
@@ -15,10 +15,4 @@ h1, h2, h3, h4, h5, h6 {
 html {
   font-size: $text-body-md;
   line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-  html {
-    font-size: $text-body-sm;
-  }
 }

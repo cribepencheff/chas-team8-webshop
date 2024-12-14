@@ -1,0 +1,38 @@
+@use './variables' as *;
+
+.cta {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: $font-family-semibold;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  padding: 0.5625rem 1rem;
+  margin: 0;
+  transition: background-color 250ms ease-in-out;
+  border: 0.1rem solid;
+  border-radius: 50vw;
+  border-color: currentColor;
+  background: $color-primary;
+  color: $color-white;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-primary-hover;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-inline: #{calc($spacing-sm / -4)};
+  }
+
+  &.cta-inverted {
+    background-color: $color-white;
+    color: $color-heading;
+  }
+}

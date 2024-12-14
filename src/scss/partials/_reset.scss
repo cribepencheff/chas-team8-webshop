@@ -16,3 +16,10 @@ img {
   height: auto;
   align-self: center;
 }
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+

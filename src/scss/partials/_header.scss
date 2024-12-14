@@ -19,12 +19,20 @@ header {
     align-items: center;
     justify-content: space-between;
     flex: 1 1 auto;
+
+    @media #{$large-up} {
+      padding-inline: $spacing-lg;
+    }
   }
 
   .header-logo {
-    @media (#{$mobile-down}) {
+    @media #{$medium-down} {
       width: 184px;
       height: 26px;
     }
+  }
+
+  .cta {
+    border-color: $color-primary;
   }
 }

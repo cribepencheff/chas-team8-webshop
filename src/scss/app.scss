@@ -3,11 +3,14 @@
 @use './partials/variables' as *;
 @use './partials/typography' as *;
 @use './partials/helpers' as *;
+@use './partials/global' as *;
 @use './partials/header' as *;
 @use './partials/cart' as *;
 
-.header h1 {
-  margin-right: 10px;
+.container.page-title {
+  margin: 0;
+  position: sticky;
+  top: 4.8125rem;
 }
 
 .filters,
@@ -83,28 +86,21 @@ img {
   height: auto;
 }
 
-#cart-button, #wish-button {
-  position: relative;
-  background-color: #fff;
-  border: none;
-  cursor: pointer;
-  padding: 10px;
-}
-
-#item-count, #wish-count {
+.count-badge {
   position: absolute;
-  top: 5px;
-  right: 5px;
-  background-color: red;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 0.375rem;
+  right: 0.375rem;
+  padding: calc($spacing-sm * 0.25) calc($spacing-sm * 0.625);
+  background-color: $color-alert;
+  font-size: $text-body-tiny;
+  font-family: $font-family-semibold;
+  color: $color-white;
+  height: 1rem;
+  min-width: 1rem;
+  border-radius: 50vw;
 }
 
 .footer-copyright {

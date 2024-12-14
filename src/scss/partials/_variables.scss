@@ -31,6 +31,10 @@ $text-heading-md: 1.5rem;
 $text-heading-lg: 1.625rem;
 $text-heading-xl: 1.875rem;
 
+$font-family-medium: "GeneralSans-Medium", Helvetica, Arial, sans-serif;
+$font-family-semibold: "GeneralSans-Semibold", Helvetica, Arial, sans-serif;
+$font-family-bold: "GeneralSans-Bold", Helvetica, Arial, sans-serif;
+
 // Spacing
 $spacing-sm: 0.5rem;
 $spacing-md: 1rem;
@@ -41,4 +45,12 @@ $max-width-xl: 90rem;
 $max-width-lg: 75rem;
 
 // Media queries
-$mobile-down: "width < 48rem";
+
+$xsmall: "(width < 37.5rem)";
+$small-down: "(width < 48rem)";
+$medium-up: "(width >= 48rem)";
+$medium: "(width < 62.5rem) and (width >= 48rem)";
+$medium-down: "(width < 62.5rem)";
+$large-up: "(width >= 62.5rem)";
+$xlarge-up: "(width >= 75rem)";
+
