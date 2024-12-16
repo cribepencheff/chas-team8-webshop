@@ -1,16 +1,16 @@
 import { getProducts } from "./services/apiService.js";
-import { productModal } from "./utils/modal.js";
+import { productModal } from "./utils/productModal.js";
 import { getById, cartItemCountLS } from "./cartFunctions.js";
 
 const filterSelectEl = document.getElementById("filter-select");
 const sortSelectEl = document.getElementById("sort-select");
 const itemsContainerEl = document.getElementById("items-container");
 const loaderEl = document.getElementById("loader");
-let cartCount = document.querySelector("#item-count");
+let cartCountEl = document.getElementById("item-count");
 
 let showItemsCount = () => {
   // count the items in cart and show the count on the cart
-  cartCount.innerHTML = cartItemCountLS();
+  cartCountEl.innerHTML = cartItemCountLS();
 };
 
 let fetchedProducts = null;
@@ -34,8 +34,7 @@ const loadProducts = async () => {
 };
 
 const displayProducts = () => {
-  const products =
-    sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
+  const products = sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
   let compare;
 
   switch (sortSelectEl.value) {
@@ -60,8 +59,8 @@ const displayProducts = () => {
     .map(
       (item) =>
         `<article class="product">
-          <figure>
-            <img class="product-img show-modal" data-id="${item.id}" src="${item.image}" alt="${item.title}" width="150" height="175" />
+          <figure class="show-modal" data-id="${item.id}">
+            <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
           </figure>
 
           <div class="product-content">
@@ -69,7 +68,7 @@ const displayProducts = () => {
             <p class="product-content-descrition truncate">${item.description}</p>
             <div class="product-content-footer">
               <button data-id="${item.id}" class="cta-inverted icon-only">
-                <img src="./src/images/icons/shopping-bag-add-drk.svg" width="24" height="24" alt="Chevron down">
+                <img src="./src/images/icons/shopping-bag-add-drk.svg" width="24" height="24" alt="Add to cart">
               </button>
               <p class="product-price">$${item.price}</p>
               <p class="product-rating">
@@ -109,3 +108,5 @@ const displayProducts = () => {
 loadProducts();
 filterSelectEl.addEventListener("change", displayProducts);
 sortSelectEl.addEventListener("change", displayProducts);
+
+export { filterSelectEl, displayProducts }

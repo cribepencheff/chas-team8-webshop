@@ -7,12 +7,13 @@
 @use './partials/header' as *;
 @use './partials/product-list' as *;
 @use './partials/cart' as *;
+@use './partials/modal' as *;
 
 .page-header {
   margin: 0;
   position: sticky;
   z-index: 1;
-  top: 4.75rem;
+  top: $header-height;
   background-color: $color-white;
   align-items: center;
 
@@ -40,44 +41,7 @@
   }
 }
 
-.page-title {
-  margin-right: auto;
-  font-size: $text-heading-lg;
-
-  @media #{$small-down} {
-    font-size: $text-heading-sm;
-  }
-
-  &.hide-md-up {
-    padding: 0 $spacing-md $spacing-md;
-  }
-}
-
-
 /* To Clean Up */
-// .container {
-//   display: flex;
-//   justify-content: space-between;
-//   margin: 20px 0;
-//   background-color: grey;
-// }
-
-// .product-list {
-//   display: grid;
-//   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-//   gap: 1rem;
-//   padding: 20px;
-//   border: 2px solid red;
-// }
-
-
-
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 .footer-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

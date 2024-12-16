@@ -31,7 +31,9 @@ section {
   height: 2.75rem;
   padding: 0.5625rem 1rem;
   margin: 0;
-  transition: background-color $transition-settings;
+  transition:
+    border-color $transition-settings,
+    background-color $transition-settings;
   border: 0.1rem solid;
   border-radius: 50vw;
   border-color: currentColor;
@@ -85,5 +87,26 @@ section {
     right: $spacing-sm;
     top: 50%;
     transform: translateY(-50%);
+  }
+}
+
+.badge {
+  @extend .cta;
+  background-color: $color-gray-lgt;
+  border-color: $color-gray-lgt;
+  font-size: $text-body-sm;
+  line-height: 1;
+  height: auto;
+  padding: calc($spacing-sm * 0.5) $spacing-sm;
+  color: $color-heading;
+  display: inline-block;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    background-color: $color-gray-lgt;
+    border-color: $color-gray-drk;
   }
 }

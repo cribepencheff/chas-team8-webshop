@@ -17,3 +17,16 @@ html {
   font-size: $text-body-md;
   line-height: 1.6;
 }
+
+.page-title {
+  margin-right: auto;
+  font-size: $text-heading-lg;
+
+  @media #{$small-down} {
+    font-size: $text-heading-sm;
+  }
+
+  &.hide-md-up {
+    padding: 0 $spacing-md $spacing-md;
+  }
+}

@@ -52,6 +52,7 @@
     align-items: center;
     justify-content: center;
     aspect-ratio: 17 / 13;
+    cursor: pointer;
   }
 
   .product-img {
@@ -78,6 +79,7 @@
 
     .product-content-title {
       font-size: $text-heading-sm;
+      cursor: pointer;
     }
 
     .product-content-descrition {
