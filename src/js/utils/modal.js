@@ -10,8 +10,9 @@ async function productModal(productId) {
   modalWindow.classList.add("product-modal");
   modalWindow.innerHTML = `
   <article class="modal-article" data-id="${productObject.id}">
-  <button class="close-modal">X</button>
+  <button class="close-modal">To shop</button>
           <img class="product-img" src="${productObject.image}" alt="${productObject.title}" width="150" height="175" />
+          <button class="product-category">${productObject.category}</button>
           <h3 class="truncate">${productObject.title}</h3>
           <p class="truncate">${productObject.description}</p>
           <button class="add-to-cart-btn" data-id="${productObject.id}">Add to cart</button>
@@ -25,6 +26,11 @@ async function productModal(productId) {
   modalWindow.querySelector(".close-modal").addEventListener("click", () => {
     modalWindow.remove();
   });
+  modalWindow
+    .querySelector(".product-category")
+    .addEventListener("click", () => {
+      modalWindow.remove();
+    });
   modalWindow
     .querySelector(".add-to-cart-btn")
     .addEventListener("click", (event) => {
