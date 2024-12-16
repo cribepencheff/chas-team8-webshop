@@ -1,0 +1,28 @@
+@use './variables' as *;
+
+header {
+  position: sticky;
+  top: 0;
+  background-color: $color-primary;
+
+  h1 > a {
+    display: flex;
+    align-items: center;
+  }
+
+  > div[class$="inner"] {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-logo {
+    @media #{$medium-down} {
+      width: 184px;
+      height: 26px;
+    }
+  }
+
+  .cta {
+    border-color: $color-primary;
+  }
+}

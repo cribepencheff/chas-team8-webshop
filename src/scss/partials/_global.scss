@@ -1,0 +1,80 @@
+@use './variables' as *;
+
+header,
+section {
+  display: flex;
+  justify-content: center;
+
+  > div[class$="inner"] {
+    max-width: $max-width-xl;
+    padding: $spacing-md;
+    display: flex;
+    flex: 1 1 auto;
+
+    @media #{$large-up} {
+      padding-inline: $spacing-lg;
+    }
+  }
+}
+
+.cta {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-family: $font-family-semibold;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  height: 2.75rem;
+  padding: 0.5625rem 1rem;
+  margin: 0;
+  transition: background-color 250ms ease-in-out;
+  border: 0.1rem solid;
+  border-radius: 50vw;
+  border-color: currentColor;
+  background: $color-primary;
+  color: $color-white;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-primary-hover;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-inline: calc($spacing-sm * -0.25);
+  }
+}
+
+.cta-inverted {
+  @extend .cta;
+  background-color: $color-white;
+  color: $color-heading;
+
+  &:hover {
+    background: $color-white;
+  }
+}
+
+.dropdown-container {
+  position: relative;
+
+  select {
+    font-family: $font-family-medium;
+    font-size: $text-body-sm;
+    letter-spacing: 0;
+    text-align: left;
+    padding-right: calc($spacing-lg * 1.25);
+  }
+
+  img {
+    position: absolute;
+    right: $spacing-sm;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
