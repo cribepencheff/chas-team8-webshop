@@ -1,9 +1,15 @@
 import { getProducts } from "./services/apiService.js";
+import { getById, cartItemCountLS} from "./cartFunctions.js";
 
 const filterSelectEl = document.getElementById("filter-select");
 const sortSelectEl = document.getElementById("sort-select");
 const itemsContainerEl = document.getElementById("items-container");
 const loaderEl = document.getElementById("loader");
+let cartCount = document.querySelector("#item-count");
+
+let showItemsCount = () => {  // count the items in cart and show the count on the cart
+  cartCount.innerHTML = cartItemCountLS()
+}
 
 let fetchedProducts = null;
 let unsortedProducts = null;
@@ -16,6 +22,7 @@ const loadProducts = async () => {
     fetchedProducts = await getProducts();
     unsortedProducts = Array.from(fetchedProducts);
     displayProducts(fetchedProducts);
+    showItemsCount()
   } catch (error) {
     console.log(error);
     itemsContainerEl.innerHTML = `<p>Failed loading products. <br> Try Agin later.</p>`;
@@ -49,7 +56,7 @@ const displayProducts = () => {
     )
     .map(
       (item) =>
-        `<article class="product">
+        `<article class="product" data-key="${item.index}" >
           <figure>
             <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
           </figure>
@@ -78,9 +85,12 @@ const displayProducts = () => {
 
   const productsButtons = itemsContainerEl.querySelectorAll("button");
   productsButtons.forEach((button) => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (event) => {
+      const product = parseInt(event.target.getAttribute("data-id"))
       // Catch Product ID
       console.log(button.dataset.id);
+      getById(fetchedProducts, product)
+
     })
   });
 }

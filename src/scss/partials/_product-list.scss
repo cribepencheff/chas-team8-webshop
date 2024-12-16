@@ -37,7 +37,6 @@
     border-radius: $border-radius-sm;
     box-shadow: $box-shadow-lg;
     transition: border-color $transition-settings;
-    cursor: pointer;
 
     &:hover {
       border-color: $color-gray;
@@ -58,7 +57,7 @@
   .product-img {
     width: 100%;
     height: auto;
-    padding: $spacing-sm;
+    padding: $spacing-md;
     aspect-ratio: 1 / 1;
     max-width: 200px;
     object-fit: contain;
@@ -70,9 +69,11 @@
     flex-direction: column;
     flex: 1 0 auto;
     padding: $spacing-sm;
+    padding-top: calc($spacing-sm * 0.5);
 
     @media #{$medium-up} {
       padding: $spacing-md;
+      padding-top: $spacing-sm;
     }
 
     .product-content-title {
