@@ -1,4 +1,5 @@
 import { getProducts } from "./services/apiService.js";
+import { productModal } from "./modal.js";
 
 const filterSelectEl = document.getElementById("filter-select");
 const sortSelectEl = document.getElementById("sort-select");
