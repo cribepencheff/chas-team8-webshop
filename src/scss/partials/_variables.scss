@@ -5,6 +5,9 @@ $color-white: #ffffff;
 $color-blue: #0845F5;
 $color-red: #FF3131;
 $color-green: #4DCB83;
+$color-gray: #AFB3BD;
+$color-gray-lgt: #EDF0F7;
+$color-gray-drk: #9299AA;
 
 // CoreColors
 $color-bg: $color-white;
@@ -40,13 +43,21 @@ $spacing-sm: 0.5rem;
 $spacing-md: 1rem;
 $spacing-lg: 2rem;
 
+// Border radius
+$border-radius-sm: calc($spacing-sm * 0.5);
+
 // Container widths
 $max-width-xl: 90rem;
 $max-width-lg: 75rem;
 
-// Media queries
+// Misc
+$box-shadow-lg: 0px $spacing-sm $spacing-md $color-gray-lgt;
+$transition-settings: 550ms cubic-bezier(0, .9, .55, 1);
 
+// Media queries
 $xsmall: "(width < 37.5rem)";
+$small-up: "(width >= 37.5rem)";
+$small: "(width < 48rem) and (width >= 37.5rem)";
 $small-down: "(width < 48rem)";
 $medium-up: "(width >= 48rem)";
 $medium: "(width < 62.5rem) and (width >= 48rem)";

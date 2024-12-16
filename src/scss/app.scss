@@ -5,14 +5,25 @@
 @use './partials/helpers' as *;
 @use './partials/global' as *;
 @use './partials/header' as *;
+@use './partials/product-list' as *;
 @use './partials/cart' as *;
 
 .page-header {
   margin: 0;
   position: sticky;
+  z-index: 1;
   top: 4.75rem;
   background-color: $color-white;
   align-items: center;
+
+  .page-header-inner {
+    align-items: center;
+    gap: $spacing-md;
+
+    @media #{$small-down} {
+      gap: $spacing-sm;
+    }
+  }
 
   .dropdown-container {
     @media #{$small-down} {
@@ -21,52 +32,45 @@
     }
 
     [id$="select"] {
-      border-radius: calc($spacing-sm * 0.5);
+      border-radius: $border-radius-sm;
       @media #{$small-down} {
         width: 100%;
       }
     }
   }
+}
 
-  .page-title {
-    margin-right: auto;
+.page-title {
+  margin-right: auto;
+  font-size: $text-heading-lg;
+
+  @media #{$small-down} {
+    font-size: $text-heading-sm;
   }
 
-  > div[class$="inner"] {
-    align-items: center;
-    gap: $spacing-md;
+  &.hide-md-up {
+    padding: 0 $spacing-md $spacing-md;
   }
-
-
 }
 
-.container {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-  background-color: grey;
-}
 
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  padding: 20px;
-  border: 2px solid red;
-}
+/* To Clean Up */
+// .container {
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 20px 0;
+//   background-color: grey;
+// }
 
-.product {
-  border: 1px solid black;
-  border-radius: 6px;
-  padding: 20px;
-  text-align: left;
-  grid-template-rows: subgrid;
-}
+// .product-list {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+//   gap: 1rem;
+//   padding: 20px;
+//   border: 2px solid red;
+// }
 
-.product-links {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 
 img {

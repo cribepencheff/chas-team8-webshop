@@ -2,6 +2,7 @@
 
 header {
   position: sticky;
+  z-index: 1;
   top: 0;
   background-color: $color-primary;
 
@@ -10,7 +11,7 @@ header {
     align-items: center;
   }
 
-  > div[class$="inner"] {
+  .header-inner {
     align-items: center;
     justify-content: space-between;
   }
@@ -22,7 +23,7 @@ header {
     }
   }
 
-  .cta {
+  #cart-button {
     border-color: $color-primary;
   }
 }

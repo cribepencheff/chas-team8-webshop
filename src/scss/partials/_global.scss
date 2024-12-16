@@ -31,13 +31,22 @@ section {
   height: 2.75rem;
   padding: 0.5625rem 1rem;
   margin: 0;
-  transition: background-color 250ms ease-in-out;
+  transition: background-color $transition-settings;
   border: 0.1rem solid;
   border-radius: 50vw;
   border-color: currentColor;
   background: $color-primary;
   color: $color-white;
   cursor: pointer;
+
+  &.icon-only {
+    width: 2.75rem;
+    padding: 0.5625rem;
+
+    img {
+      margin-inline: unset;
+    }
+  }
 
   &:hover {
     background: $color-primary-hover;

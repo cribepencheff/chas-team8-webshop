@@ -1,0 +1,110 @@
+@use './variables' as *;
+
+.product-list {
+  display: block;
+}
+
+#items-container.product-list-inner {
+  display: grid;
+  margin: 0 auto;
+  padding-top: 0;
+  grid-template-columns: repeat(2, minmax(calc(50% - calc($spacing-sm * 0.5)), 1fr));
+  gap: $spacing-sm;
+
+  @media #{$medium-up} {
+    gap: $spacing-md;
+  }
+
+  @media #{$medium-up} {
+    grid-template-columns: repeat(auto-fit, minmax(234px, 1fr));
+  }
+
+  @media #{$large-up} {
+    grid-template-columns: repeat(auto-fit, minmax(264px, 1fr));
+  }
+
+  @media #{$xlarge-up} {
+    grid-template-columns: repeat(auto-fit, minmax(294px, 1fr));
+  }
+}
+
+.product-list {
+  .product {
+    display: flex;
+    flex-direction: column;
+    border: 0.125rem solid;
+    border-color: $color-gray-lgt;
+    border-radius: $border-radius-sm;
+    box-shadow: $box-shadow-lg;
+    transition: border-color $transition-settings;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $color-gray;
+
+      .product-img {
+        scale: 1.05;
+      }
+    }
+  }
+
+  figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 17 / 13;
+  }
+
+  .product-img {
+    width: 100%;
+    height: auto;
+    padding: $spacing-sm;
+    aspect-ratio: 1 / 1;
+    max-width: 200px;
+    object-fit: contain;
+    transition: scale $transition-settings;
+  }
+
+  .product-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 auto;
+    padding: $spacing-sm;
+
+    @media #{$medium-up} {
+      padding: $spacing-md;
+    }
+
+    .product-content-title {
+      font-size: $text-heading-sm;
+    }
+
+    .product-content-descrition {
+      margin-bottom: $spacing-sm;
+    }
+
+    .product-content-footer {
+      font-family: $font-family-semibold;
+      margin-top: auto;
+      display: flex;
+      gap: $spacing-sm;
+      align-items: center;
+    }
+
+    button {
+      border-color: $color-gray-lgt;
+    }
+
+    .product-price {
+      font-size: $text-heading-md;
+      color: $color-primary;
+    }
+
+    .product-rating {
+      margin-top: calc($spacing-sm * 0.7);
+      font-size: $text-body-lg;
+      color: $color-heading;
+      margin-left: auto;
+    }
+  }
+}

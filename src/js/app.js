@@ -50,14 +50,23 @@ const displayProducts = () => {
     .map(
       (item) =>
         `<article class="product">
-          <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
-          <h3 class="truncate">${item.title}</h3>
-          <p class="truncate">${item.description}</p>
-          <button data-id="${item.id}">Add to cart</button>
+          <figure>
+            <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
+          </figure>
 
-          <div class="product-links">
-            <p>Price: $${item.price}</p>
-            <p>Rating: ★ ${item.rating.rate}</p>
+          <div class="product-content">
+            <h3 class="product-content-title truncate">${item.title}</h3>
+            <p class="product-content-descrition truncate">${item.description}</p>
+            <div class="product-content-footer">
+              <button data-id="${item.id}" class="cta-inverted icon-only">
+                <img src="./src/images/icons/shopping-bag-add-drk.svg" width="24" height="24" alt="Chevron down">
+              </button>
+              <p class="product-price">$${item.price}</p>
+              <p class="product-rating">
+                <img src="./src/images/rating-star.svg" width="17" height="17" alt="Star rating">
+                ${item.rating.rate}
+              </p>
+            </div>
           </div>
         </article>`
     )
