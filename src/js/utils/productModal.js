@@ -1,6 +1,6 @@
 import { getProducts } from "../services/apiService.js";
 import { getById } from "../cartFunctions.js";
-import { filterSelectEl, displayProducts } from "../app.js";
+import { filterSelectEl, showItemsCount, displayProducts } from "../app.js";
 
 async function productModal(productId) {
   let modalData = await getProducts();
@@ -59,9 +59,10 @@ async function productModal(productId) {
   // Add to Cart
   modalWindow
     .querySelector(".add-to-cart-btn")
-    .addEventListener("click", (event) => {
-      const catchId = parseInt(event.target.getAttribute("data-id"));
+    .addEventListener("click", (e) => {
+      const catchId = parseInt(e.target.getAttribute("data-id"));
       getById(modalData, catchId);
+      showItemsCount();
     });
 
   document.body.appendChild(modalWindow);

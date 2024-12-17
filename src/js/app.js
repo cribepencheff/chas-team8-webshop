@@ -11,6 +11,9 @@ let cartCountEl = document.getElementById("item-count");
 let showItemsCount = () => {
   // count the items in cart and show the count on the cart
   cartCountEl.innerHTML = cartItemCountLS();
+  cartCountEl.textContent > 0
+  ? cartCountEl.classList.remove("hide")
+  : cartCountEl.classList.add("hide");
 };
 
 let fetchedProducts = null;
@@ -88,19 +91,17 @@ const displayProducts = () => {
   const productArticle = itemsContainerEl.querySelectorAll(".show-modal");
   productArticle.forEach((product) => {
     product.addEventListener("click", () => {
-      // Catch Product ID
       productModal(product.dataset.id);
-      // console.log(product.dataset.id);
     });
   });
 
   const productsButtons = itemsContainerEl.querySelectorAll("button");
   productsButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const product = parseInt(event.target.getAttribute("data-id"));
-      // Catch Product ID
-      console.log(button.dataset.id);
-      getById(fetchedProducts, product);
+    button.addEventListener("click", (e) => {
+      const productId = parseInt(e.target.dataset.id);
+      // console.log("Item ID: ", productId)
+      getById(fetchedProducts, productId);
+      showItemsCount();
     });
   });
 };
@@ -109,4 +110,4 @@ loadProducts();
 filterSelectEl.addEventListener("change", displayProducts);
 sortSelectEl.addEventListener("change", displayProducts);
 
-export { filterSelectEl, displayProducts }
+export { filterSelectEl, displayProducts, showItemsCount }

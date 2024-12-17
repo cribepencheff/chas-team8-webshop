@@ -58,6 +58,7 @@ section {
     width: 24px;
     height: 24px;
     margin-inline: calc($spacing-sm * -0.25);
+    pointer-events: none;
   }
 }
 

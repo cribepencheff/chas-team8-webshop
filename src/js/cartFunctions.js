@@ -15,7 +15,9 @@ export let cartItemCountLS = () => {
 // -------------------------------------------------------------------------------------------------- 
 
   export const getById = (data, id) => { 
-      if (!data) {  // checks if the globaldata variable is populated or not
+    console.log(id)  
+    
+    if (!data) {  // checks if the globaldata variable is populated or not
           console.error("data not loaded yet")
           return null
       } 
