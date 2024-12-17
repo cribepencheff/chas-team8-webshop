@@ -31,13 +31,24 @@ section {
   height: 2.75rem;
   padding: 0.5625rem 1rem;
   margin: 0;
-  transition: background-color 250ms ease-in-out;
+  transition:
+    border-color $transition-settings,
+    background-color $transition-settings;
   border: 0.1rem solid;
   border-radius: 50vw;
   border-color: currentColor;
   background: $color-primary;
   color: $color-white;
   cursor: pointer;
+
+  &.icon-only {
+    width: 2.75rem;
+    padding: 0.5625rem;
+
+    img {
+      margin-inline: unset;
+    }
+  }
 
   &:hover {
     background: $color-primary-hover;
@@ -47,6 +58,7 @@ section {
     width: 24px;
     height: 24px;
     margin-inline: calc($spacing-sm * -0.25);
+    pointer-events: none;
   }
 }
 
@@ -76,5 +88,26 @@ section {
     right: $spacing-sm;
     top: 50%;
     transform: translateY(-50%);
+  }
+}
+
+.badge {
+  @extend .cta;
+  background-color: $color-gray-lgt;
+  border-color: $color-gray-lgt;
+  font-size: $text-body-sm;
+  line-height: 1;
+  height: auto;
+  padding: calc($spacing-sm * 0.5) $spacing-sm;
+  color: $color-heading;
+  display: inline-block;
+
+  &:first-letter {
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    background-color: $color-gray-lgt;
+    border-color: $color-gray-drk;
   }
 }

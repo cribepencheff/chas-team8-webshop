@@ -5,14 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team 8 | Webshop</title>
-    <link rel="stylesheet" href="./dist/styles.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="./src/js/app.js" type="module"></script>
-    <script src="./src/js/cartFunctions.js" type="module"></script>
-
-  <link rel="stylesheet" href="./dist/styles.css">
   <link rel="stylesheet" href="./dist/styles.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="./src/js/app.js" type="module"></script>
+  <script src="./src/js/cartFunctions.js" type="module"></script>
   <script src="./src/js/app.js" type="module"></script>
 
   <!-- Google tag (gtag.js) -->
@@ -36,15 +32,10 @@
       </h1>
 
       <div class="cart-wish">
-        <!-- <button class="cta" id="wish-button">
-            <img src="./src/images/icons/icons8-heart-24.png" alt="wishlist-icon"/>
-            <span id="wish-count" class="hide"></span>
-          </button> -->
-
         <a href="./pages/cart.html" class="cta-inverted" id="cart-button">
           Cart
           <img src="./src/images/icons/shopping-bag-drk.svg" width="24" height="24" alt="Cart">
-          <span class="count-badge hide" id="item-count">1</span>
+          <span class="count-badge hide" id="item-count"></span>
         </a>
       </div>
     </div>
@@ -52,19 +43,10 @@
 
   <main>
     <section class="page-header">
-      <div class="page-title-inner">
+      <div class="page-header-inner">
         <h2 class="page-title hide-sm-down">
-          Products
+          All products
         </h2>
-
-        <div class="dropdown-container">
-          <select name="sort" class="cta-inverted" id="sort-select">
-            <option value="none">No sort</option>
-            <option value="ascending">Price, low to high</option>
-            <option value="descending">Price, high to low</option>
-          </select>
-          <img src="./src/images/icons/sort-drk.svg" width="24" height="24" alt="Chevron down">
-        </div>
 
         <div class="dropdown-container">
           <select name="categories" class="cta-inverted" id="filter-select">
@@ -75,25 +57,30 @@
             <option value="jewelery">Jewelery</option>
           </select>
           <img src="./src/images/icons/settings-drk.svg" width="24" height="24" alt="Chevron down">
-          <!-- <a href="./pages/cart.html" class="cta-inverted" id="cart-button">
-            Cart
-            <img src="./src/images/icons/shopping-bag-drk.svg" width="24" height="24" alt="Cart">
-            <span class="count-badge " id="item-count"></span>
-          </a> -->
+        </div>
+
+        <div class="dropdown-container">
+          <select name="sort" class="cta-inverted" id="sort-select">
+            <option value="none">No sort</option>
+            <option value="ascending">Price, low to high</option>
+            <option value="descending">Price, high to low</option>
+          </select>
+          <img src="./src/images/icons/sort-drk.svg" width="24" height="24" alt="Chevron down">
         </div>
       </div>
     </section>
 
     <h2 class="page-title hide-md-up">
-      Products
+      All products
     </h2>
 
-    <section id="items-container" class="products"></section>
+    <section class="product-list">
+      <div id="items-container" class="product-list-inner"></div>
+    </section>
 
     <div id="loader" class="hide">
       <img src="./src/images/spinner.svg" alt="Loading..." />
     </div>
   </main>
 </body>
-
 </html>

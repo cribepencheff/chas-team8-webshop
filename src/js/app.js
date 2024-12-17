@@ -1,16 +1,19 @@
 import { getProducts } from "./services/apiService.js";
-import { productModal } from "./utils/modal.js";
+import { productModal } from "./utils/productModal.js";
 import { getById, cartItemCountLS } from "./cartFunctions.js";
 
 const filterSelectEl = document.getElementById("filter-select");
 const sortSelectEl = document.getElementById("sort-select");
 const itemsContainerEl = document.getElementById("items-container");
 const loaderEl = document.getElementById("loader");
-let cartCount = document.querySelector("#item-count");
+let cartCountEl = document.getElementById("item-count");
 
 let showItemsCount = () => {
   // count the items in cart and show the count on the cart
-  cartCount.innerHTML = cartItemCountLS();
+  cartCountEl.innerHTML = cartItemCountLS();
+  cartCountEl.textContent > 0
+  ? cartCountEl.classList.remove("hide")
+  : cartCountEl.classList.add("hide");
 };
 
 let fetchedProducts = null;
@@ -34,8 +37,7 @@ const loadProducts = async () => {
 };
 
 const displayProducts = () => {
-  const products =
-    sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
+  const products = sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
   let compare;
 
   switch (sortSelectEl.value) {
@@ -60,14 +62,23 @@ const displayProducts = () => {
     .map(
       (item) =>
         `<article class="product">
-          <img class="product-img show-modal" data-id="${item.id}" src="${item.image}" alt="${item.title}" width="150" height="175" />
-          <h3 class="truncate show-modal" data-id="${item.id}">${item.title}</h3>
-          <p class="truncate">${item.description}</p>
-          <button data-id="${item.id}" >Add to cart</button>
+          <figure class="show-modal" data-id="${item.id}">
+            <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
+          </figure>
 
-          <div class="product-links">
-            <p>Price: $${item.price}</p>
-            <p>Rating: ★ ${item.rating.rate}</p>
+          <div class="product-content">
+            <h3 class="product-content-title truncate show-modal" data-id="${item.id}">${item.title}</h3>
+            <p class="product-content-descrition truncate">${item.description}</p>
+            <div class="product-content-footer">
+              <button data-id="${item.id}" class="cta-inverted icon-only">
+                <img src="./src/images/icons/shopping-bag-add-drk.svg" width="24" height="24" alt="Add to cart">
+              </button>
+              <p class="product-price">$${item.price}</p>
+              <p class="product-rating">
+                <img src="./src/images/rating-star.svg" width="17" height="17" alt="Star rating">
+                ${item.rating.rate}
+              </p>
+            </div>
           </div>
         </article>`
     )
@@ -80,19 +91,17 @@ const displayProducts = () => {
   const productArticle = itemsContainerEl.querySelectorAll(".show-modal");
   productArticle.forEach((product) => {
     product.addEventListener("click", () => {
-      // Catch Product ID
       productModal(product.dataset.id);
-      // console.log(product.dataset.id);
     });
   });
 
   const productsButtons = itemsContainerEl.querySelectorAll("button");
   productsButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const product = parseInt(event.target.getAttribute("data-id"));
-      // Catch Product ID
-      console.log(button.dataset.id);
-      getById(fetchedProducts, product);
+    button.addEventListener("click", (e) => {
+      const productId = parseInt(e.target.dataset.id);
+      // console.log("Item ID: ", productId)
+      getById(fetchedProducts, productId);
+      showItemsCount();
     });
   });
 };
@@ -100,3 +109,5 @@ const displayProducts = () => {
 loadProducts();
 filterSelectEl.addEventListener("change", displayProducts);
 sortSelectEl.addEventListener("change", displayProducts);
+
+export { filterSelectEl, displayProducts, showItemsCount }
