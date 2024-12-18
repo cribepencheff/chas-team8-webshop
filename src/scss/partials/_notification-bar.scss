@@ -1,7 +1,7 @@
 @use './variables' as *;
 
 .custom.notification-bar {
-  position: absolute;
+  position: fixed;
   z-index: 100;
   top: calc($header-height + $spacing-md);
   left: 50%;
