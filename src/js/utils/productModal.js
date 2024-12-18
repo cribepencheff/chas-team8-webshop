@@ -3,9 +3,7 @@ import { getById } from "../cartFunctions.js";
 import { filterSelectEl, showItemsCount, displayProducts } from "../app.js";
 
 function productModal(fetchedProducts, productId) {
- 
   let item = fetchedProducts.find((product) => product.id === parseInt(productId));
-
   const modalWindow = document.createElement("div");
   modalWindow.classList.add("modal", "modal-product");
   modalWindow.innerHTML = `
@@ -33,7 +31,7 @@ function productModal(fetchedProducts, productId) {
               <span>${item.rating.count} ratings</span>
             </p>
           </div>
-          <button class="cta add-to-cart-btn" data-id="${item.id}">
+          <button class="cta custom add-to-cart-btn" data-id="${item.id}">
             <img src="./src/images/icons/shopping-bag-add-lgt.svg" width="24" height="24" alt="Chevron down"> Add to cart
           </button>
         </div>
@@ -59,7 +57,7 @@ function productModal(fetchedProducts, productId) {
     .querySelector(".add-to-cart-btn")
     .addEventListener("click", (e) => {
       const catchId = parseInt(e.target.getAttribute("data-id"));
-      getById(modalData, catchId);
+      getById(fetchedProducts, catchId);
       showItemsCount();
     });
 
