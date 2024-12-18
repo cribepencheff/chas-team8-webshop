@@ -1,13 +1,13 @@
-@use './partials/reset' as *;
-@use './partials/fonts' as *;
-@use './partials/variables' as *;
-@use './partials/typography' as *;
-@use './partials/helpers' as *;
-@use './partials/global' as *;
-@use './partials/header' as *;
-@use './partials/product-list' as *;
-@use './partials/cart' as *;
-@use './partials/modal' as *;
+@use "./partials/reset" as *;
+@use "./partials/fonts" as *;
+@use "./partials/variables" as *;
+@use "./partials/typography" as *;
+@use "./partials/helpers" as *;
+@use "./partials/global" as *;
+@use "./partials/header" as *;
+@use "./partials/product-list" as *;
+@use "./partials/cart" as *;
+@use "./partials/modal" as *;
 
 .page-header {
   margin: 0;

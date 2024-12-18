@@ -2,11 +2,9 @@ import { getProducts } from "../services/apiService.js";
 import { getById } from "../cartFunctions.js";
 import { filterSelectEl, showItemsCount, displayProducts } from "../app.js";
 
-async function productModal(productId) {
-  let modalData = await getProducts();
-  let item = modalData.find(
-    (product) => product.id === parseInt(productId)
-  );
+function productModal(fetchedProducts, productId) {
+ 
+  let item = fetchedProducts.find((product) => product.id === parseInt(productId));
 
   const modalWindow = document.createElement("div");
   modalWindow.classList.add("modal", "modal-product");
@@ -44,9 +42,8 @@ async function productModal(productId) {
   `;
 
   // Select Category
-  modalWindow
-    .querySelectorAll(".close-modal")
-    .forEach(item => item.addEventListener("click", (e) => {
+  modalWindow.querySelectorAll(".close-modal").forEach((item) =>
+    item.addEventListener("click", (e) => {
       modalWindow.remove();
       document.body.classList.remove("modal-open");
 
@@ -54,7 +51,8 @@ async function productModal(productId) {
         filterSelectEl.value = e.target.dataset.cat;
         displayProducts();
       }
-    }));
+    })
+  );
 
   // Add to Cart
   modalWindow

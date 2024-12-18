@@ -14,8 +14,8 @@ let showItemsCount = () => {
   // count the items in cart and show the count on the cart
   cartCountEl.innerHTML = cartItemCountLS();
   cartCountEl.textContent > 0
-  ? cartCountEl.classList.remove("hide")
-  : cartCountEl.classList.add("hide");
+    ? cartCountEl.classList.remove("hide")
+    : cartCountEl.classList.add("hide");
 };
 
 let fetchedProducts = null;
@@ -39,7 +39,8 @@ const loadProducts = async () => {
 };
 
 const displayProducts = () => {
-  const products = sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
+  const products =
+    sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
   let compare;
 
   switch (sortSelectEl.value) {
@@ -97,7 +98,7 @@ const displayProducts = () => {
   const productArticle = itemsContainerEl.querySelectorAll(".show-modal");
   productArticle.forEach((product) => {
     product.addEventListener("click", () => {
-      productModal(product.dataset.id);
+      productModal(fetchedProducts, product.dataset.id);
     });
   });
 
