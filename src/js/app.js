@@ -2,18 +2,19 @@ import { getProducts } from "./services/apiService.js";
 import { productModal } from "./utils/productModal.js";
 import { getById, cartItemCountLS } from "./cartFunctions.js";
 
+const loaderEl = document.getElementById("loader");
 const filterSelectEl = document.getElementById("filter-select");
 const sortSelectEl = document.getElementById("sort-select");
+const categoryTitleEl = document.querySelectorAll(".page-title");
 const itemsContainerEl = document.getElementById("items-container");
-const loaderEl = document.getElementById("loader");
-let cartCountEl = document.getElementById("item-count");
+const cartCountEl = document.getElementById("item-count");
 
 let showItemsCount = () => {
   // count the items in cart and show the count on the cart
   cartCountEl.innerHTML = cartItemCountLS();
   cartCountEl.textContent > 0
-  ? cartCountEl.classList.remove("hide")
-  : cartCountEl.classList.add("hide");
+    ? cartCountEl.classList.remove("hide")
+    : cartCountEl.classList.add("hide");
 };
 
 let fetchedProducts = null;
@@ -24,7 +25,8 @@ const loadProducts = async () => {
   itemsContainerEl.classList.add("hide");
 
   try {
-    fetchedProducts = await getProducts();
+    fetchedProducts = JSON.parse(localStorage.getItem("fetchedItems")) || await getProducts();
+    localStorage.setItem("fetchedItems", JSON.stringify(fetchedProducts));
     unsortedProducts = Array.from(fetchedProducts);
     displayProducts(fetchedProducts);
     showItemsCount();
@@ -37,7 +39,8 @@ const loadProducts = async () => {
 };
 
 const displayProducts = () => {
-  const products = sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
+  const products =
+    sortSelectEl.value === "none" ? unsortedProducts : fetchedProducts;
   let compare;
 
   switch (sortSelectEl.value) {
@@ -51,6 +54,10 @@ const displayProducts = () => {
     default:
       compare = null;
   }
+
+  categoryTitleEl.forEach(title => {
+    title.innerHTML = filterSelectEl.options[filterSelectEl.selectedIndex].text;
+  });
 
   const productsList = products
     .sort(compare || ((a, b) => 0))
@@ -91,7 +98,7 @@ const displayProducts = () => {
   const productArticle = itemsContainerEl.querySelectorAll(".show-modal");
   productArticle.forEach((product) => {
     product.addEventListener("click", () => {
-      productModal(product.dataset.id);
+      productModal(fetchedProducts, product.dataset.id);
     });
   });
 
@@ -110,4 +117,4 @@ loadProducts();
 filterSelectEl.addEventListener("change", displayProducts);
 sortSelectEl.addEventListener("change", displayProducts);
 
-export { filterSelectEl, displayProducts, showItemsCount }
+export { filterSelectEl, cartCountEl, displayProducts, showItemsCount }

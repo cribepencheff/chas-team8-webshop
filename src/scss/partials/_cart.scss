@@ -1,0 +1,142 @@
+@use "./variables" as *;
+
+.cart-page header {
+  position: sticky;
+  background-color: $color-white;
+  align-items: center;
+
+  .page-title {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+
+    span {
+      font-family: $font-family-medium;
+      color: $color-body;
+      font-size: $text-body-md;
+    }
+  }
+
+  .close {
+    &:not(:hover) {
+      border-color: transparent;
+    }
+
+    &:hover {
+      border-color: $color-gray;
+    }
+  }
+}
+
+div[class$=inner].cart-inner {
+  display: flex;
+  flex-direction: column;
+  max-width: $max-width-md;
+
+  @media #{$medium-up} {
+    padding-top: calc($spacing-lg * 2);
+    padding-bottom: calc($spacing-lg * 2);
+  }
+}
+
+.cart-page {
+  ul#cart-item-list {
+    list-style: none;
+
+    .cart-item {
+      display: flex;
+      gap: $spacing-sm;
+      border-bottom: 0.125rem solid $color-gray-lgt;
+      margin-bottom: $spacing-md;
+      padding-bottom: $spacing-md;
+    }
+  }
+
+  .product-img {
+    flex: 1 0 auto;
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: auto;
+      max-height: 84px;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  .product-content {
+    font-size: $text-body-sm;
+
+    .product-title {
+      font-family: $font-family-semibold;
+      color: $color-heading;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      font-size: $text-heading-md;
+      font-family: $font-family-semibold;
+      color: $color-heading;
+    }
+  }
+
+  button.icon-only {
+    flex: 1 0 auto;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 0.25rem;
+    border-color: $color-gray-lgt;
+
+    &:hover {
+      border-color: $color-gray-drk;
+    }
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .cart-footer {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    margin-top: $spacing-md;
+
+    .cart_totalAmount {
+      font-family: $font-family-semibold;
+      font-size: $text-heading-md;
+      color: $color-primary;
+    }
+  }
+
+  .cart-subtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
+
+div[class$=inner].empty-cart-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: $max-width-md;
+
+  @media #{$medium-up} {
+    padding-top: calc($spacing-lg * 2);
+  }
+
+  > * {
+    margin-bottom: $spacing-md;
+  }
+
+  .empty-cart-content {
+    text-align: center;
+  }
+
+  .cta {
+    margin-top: $spacing-lg;
+  }
+}

@@ -41,6 +41,15 @@ section {
   color: $color-white;
   cursor: pointer;
 
+  &.custom {
+    width: 100%;
+    height: 3rem;
+    justify-content: center;
+    border-radius: $border-radius-sm;
+    border-color: $color-primary;
+    gap: $spacing-sm;
+  }
+
   &.icon-only {
     width: 2.75rem;
     padding: 0.5625rem;

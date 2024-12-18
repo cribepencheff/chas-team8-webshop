@@ -2,12 +2,8 @@ import { getProducts } from "../services/apiService.js";
 import { getById } from "../cartFunctions.js";
 import { filterSelectEl, showItemsCount, displayProducts } from "../app.js";
 
-async function productModal(productId) {
-  let modalData = await getProducts();
-  let item = modalData.find(
-    (product) => product.id === parseInt(productId)
-  );
-
+function productModal(fetchedProducts, productId) {
+  let item = fetchedProducts.find((product) => product.id === parseInt(productId));
   const modalWindow = document.createElement("div");
   modalWindow.classList.add("modal", "modal-product");
   modalWindow.innerHTML = `
@@ -35,7 +31,7 @@ async function productModal(productId) {
               <span>${item.rating.count} ratings</span>
             </p>
           </div>
-          <button class="cta add-to-cart-btn" data-id="${item.id}">
+          <button class="cta custom add-to-cart-btn" data-id="${item.id}">
             <img src="./src/images/icons/shopping-bag-add-lgt.svg" width="24" height="24" alt="Chevron down"> Add to cart
           </button>
         </div>
@@ -44,9 +40,8 @@ async function productModal(productId) {
   `;
 
   // Select Category
-  modalWindow
-    .querySelectorAll(".close-modal")
-    .forEach(item => item.addEventListener("click", (e) => {
+  modalWindow.querySelectorAll(".close-modal").forEach((item) =>
+    item.addEventListener("click", (e) => {
       modalWindow.remove();
       document.body.classList.remove("modal-open");
 
@@ -54,14 +49,15 @@ async function productModal(productId) {
         filterSelectEl.value = e.target.dataset.cat;
         displayProducts();
       }
-    }));
+    })
+  );
 
   // Add to Cart
   modalWindow
     .querySelector(".add-to-cart-btn")
     .addEventListener("click", (e) => {
       const catchId = parseInt(e.target.getAttribute("data-id"));
-      getById(modalData, catchId);
+      getById(fetchedProducts, catchId);
       showItemsCount();
     });
 

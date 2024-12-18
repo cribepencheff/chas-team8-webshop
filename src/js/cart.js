@@ -1,50 +1,79 @@
 import { removeItem ,cartItemCountLS} from "./cartFunctions.js"
 
-let getCartItems = JSON.parse(localStorage.getItem("cartList"))
-let listContainer = document.querySelector(".ul")
-let totalPrice = document.querySelector(".cart_totalAmount")
-let cartItemCount = document.querySelector("#itemCounter")
-let itemAmount = document.querySelector(".itemCountCounter")
-let counter = 0
+const cartCountEl = document.getElementById("item-count");
+const listContainer = document.getElementById("cart-item-list");
+const emptyCartEl = document.getElementById("empty-cart");
+const cartItemCount = document.getElementById("cart-container");
+let totalPrice = document.querySelector(".cart_totalAmount");
+let itemAmount = document.querySelector(".itemCountCounter");
+let getCartItems = JSON.parse(localStorage.getItem("cartList"));
+let counter = 0;
 
-
+const updateCartStatus = () => {
+  cartCountEl.innerHTML = `(${cartItemCountLS()} items)`;
+  if (cartItemCountLS() > 0) {
+    cartItemCount.classList.remove("hide");
+    emptyCartEl.classList.add("hide");
+  } else {
+    cartItemCount.classList.add("hide");
+    emptyCartEl.classList.remove("hide");
+  }
+};
 
 // itemAmount.innerHTML = counter
-const showCartItems = (data) => { 
-    cartItemCount.innerHTML = cartItemCountLS()
-    listContainer.innerHTML = data.map(items => (
-        `<li class="CartItem" id=${items.id}>
-        <img class="itemImage" src="${items.image}" width="100px" height="100px" alt="">
-        <div class="itemTitleWrapper">
-        <span class="itemTitle">${items.title}</span>
-        <p class="itemDescription">${items.description}</p>
-        </div>
-        <div class="itemCountWrapper">
-        <button class="itemCountBtn" id="countMinus"> - </button>
-        <span class="itemCountCounter"></span>
-        <button class="itemCountBtn" id="countPlus"> + </button>
-        </div>
-        <h3 class="itemPrice">$ ${items.price} </h3>
-        <img id="removeItemBtn" data-id=${items.id} src="../src/images/icons/icons8-trash-128.png" role="button"/>
-        </li>`
-    )).join(" ")
-}
-showCartItems(getCartItems) 
+const showCartItems = (data) => {
+  listContainer.innerHTML = getCartItems.map(item => (
+    `<li class="cart-item" id=${item.id}>
+      <figure class="product-img">
+        <img src="${item.image}" alt="${item.title}" width="150" height="175" />
+      </figure>
 
-const deleteBtn = listContainer.querySelectorAll("img");
- deleteBtn.forEach((img) => { 
-    img.addEventListener("click", (event) => { 
-        const itemId = parseInt(event.target.dataset.id)
-        removeItem(itemId)
-        let newCartList = JSON.parse(localStorage.getItem("cartList"))
-        showCartItems(newCartList)
-    })
- })
+      <div class="product-content">
+        <p class="product-title truncate-1">${item.title}</p>
+        <p class="product-description truncate-1">${item.description}</p>
+
+        <div class="product-footer">
+          <div class="itemCountWrapper">
+            <button class="itemCountBtn"> - </button>
+            <span class="itemCountCounter"></span>
+            <button class="itemCountBtn"> + </button>
+          </div>
+          <p class="itemPrice">$ ${item.price} </p>
+        </div>
+      </div>
+
+      <button class="cta-inverted icon-only" data-id=${item.id}>
+        <img src="../src/images/icons/trash-drk.svg" width="24" height="24" alt="Close">
+      </button>
+    </li>`
+  )).join(" ")
+}
+
+const setupDeleteButtons = () => {
+  const deleteBtn = listContainer.querySelectorAll("button");
+
+  deleteBtn.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const itemId = parseInt(event.target.dataset.id);
+      console.log(itemId);
+      removeItem(itemId);
+      getCartItems = JSON.parse(localStorage.getItem("cartList")) || [];
+      showCartItems(getCartItems);
+      setupDeleteButtons();
+      updateCartStatus();
+    });
+  });
+};
+
+// Initiering
+showCartItems(getCartItems);
+setupDeleteButtons();
+updateCartStatus();
 
 
 // const addBtn = listContainer.querySelectorAll("#countPlus");
-//  addBtn.forEach((btn) => { 
-//     btn.addEventListener("click", () => { 
+//  addBtn.forEach((btn) => {
+//     btn.addEventListener("click", () => {
 
 //         console.log("clicked");
 //     })
@@ -52,9 +81,8 @@ const deleteBtn = listContainer.querySelectorAll("img");
 
 
 
-// -------------------------------------------------------------- 
+// --------------------------------------------------------------
 
-//  TO FIX 
+//  TO FIX
 //  - items are not dissapearing when runing the removeitem, only removes from LS
-//  - add and substract item function 
-  
+//  - add and substract item function
