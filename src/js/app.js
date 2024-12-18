@@ -2,7 +2,6 @@ import { getProducts } from "./services/apiService.js";
 import { productModal } from "./utils/productModal.js";
 import { getById, cartItemCountLS } from "./cartFunctions.js";
 
-
 const loaderEl = document.getElementById("loader");
 const filterSelectEl = document.getElementById("filter-select");
 const sortSelectEl = document.getElementById("sort-select");
@@ -26,7 +25,8 @@ const loadProducts = async () => {
   itemsContainerEl.classList.add("hide");
 
   try {
-    fetchedProducts = await getProducts();
+    fetchedProducts = JSON.parse(localStorage.getItem("fetchedItems")) || await getProducts();
+    localStorage.setItem("fetchedItems", JSON.stringify(fetchedProducts));
     unsortedProducts = Array.from(fetchedProducts);
     displayProducts(fetchedProducts);
     showItemsCount();
