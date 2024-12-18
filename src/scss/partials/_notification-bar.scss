@@ -1,0 +1,15 @@
+@use './variables' as *;
+
+.custom.notification-bar {
+  position: fixed;
+  z-index: 100;
+  top: calc($header-height + $spacing-md);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $color-success-lgt;
+  border-color: $color-success;
+  color: $color-heading;
+  width: $max-width-sm;
+  max-width: calc(100% - ($spacing-md * 2));
+  box-shadow: $box-shadow-lg;
+}

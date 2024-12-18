@@ -1,3 +1,5 @@
+import { notificationBar } from "./utils/notificationBar.js"
+
 if (!localStorage.getItem("cartList")) { 
     localStorage.setItem("cartList", JSON.stringify([]))
 }
@@ -31,6 +33,7 @@ export let cartItemCountLS = () => {
               localStorage.setItem("cartList", JSON.stringify(getCartLS))
         cartItemCountLS()
         console.log("item is added to cart");
+        notificationBar("Successfully added to cart!");
         return items
   }
         
