@@ -35,7 +35,7 @@ async function productModal(productId) {
               <span>${item.rating.count} ratings</span>
             </p>
           </div>
-          <button class="cta add-to-cart-btn" data-id="${item.id}">
+          <button class="cta custom add-to-cart-btn" data-id="${item.id}">
             <img src="./src/images/icons/shopping-bag-add-lgt.svg" width="24" height="24" alt="Chevron down"> Add to cart
           </button>
         </div>

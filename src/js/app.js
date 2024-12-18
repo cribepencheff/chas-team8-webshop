@@ -2,11 +2,13 @@ import { getProducts } from "./services/apiService.js";
 import { productModal } from "./utils/productModal.js";
 import { getById, cartItemCountLS } from "./cartFunctions.js";
 
+
+const loaderEl = document.getElementById("loader");
 const filterSelectEl = document.getElementById("filter-select");
 const sortSelectEl = document.getElementById("sort-select");
+const categoryTitleEl = document.querySelectorAll(".page-title");
 const itemsContainerEl = document.getElementById("items-container");
-const loaderEl = document.getElementById("loader");
-let cartCountEl = document.getElementById("item-count");
+const cartCountEl = document.getElementById("item-count");
 
 let showItemsCount = () => {
   // count the items in cart and show the count on the cart
@@ -51,6 +53,10 @@ const displayProducts = () => {
     default:
       compare = null;
   }
+
+  categoryTitleEl.forEach(title => {
+    title.innerHTML = filterSelectEl.options[filterSelectEl.selectedIndex].text;
+  });
 
   const productsList = products
     .sort(compare || ((a, b) => 0))
@@ -110,4 +116,4 @@ loadProducts();
 filterSelectEl.addEventListener("change", displayProducts);
 sortSelectEl.addEventListener("change", displayProducts);
 
-export { filterSelectEl, displayProducts, showItemsCount }
+export { filterSelectEl, cartCountEl, displayProducts, showItemsCount }

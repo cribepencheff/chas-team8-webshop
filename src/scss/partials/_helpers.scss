@@ -24,3 +24,8 @@
   text-overflow: ellipsis;
 }
 
+.truncate-1 {
+  @extend .truncate;
+  -webkit-line-clamp: 1;
+}
+

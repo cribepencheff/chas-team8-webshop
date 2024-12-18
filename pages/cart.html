@@ -2,70 +2,88 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="webshop cart ">
-    <title>Your Cart </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="webshop cart ">
+  <title>Team 8 | Webshop cart</title>
 
-    <link rel="icon" type="image/png" href="../src/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="../src/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../src/favicon/apple-touch-icon.png" />
-    <link rel="manifest" href="../src/favicon/site.webmanifest" />
+  <link rel="icon" type="image/png" href="../src/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="../src/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../src/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="../src/favicon/site.webmanifest" />
 
-    <meta name="description" content="Discover a seamless shopping experience at Team8 Webshop. Explore our curated collection of various items, combining quality and style. Shop now and enjoy fast shipping, secure payments, and exceptional customer service!">
-    <meta property="og:url" content="https://ephraimvc.github.io/chas-team8-webshop/pages/cart.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Team8 Webshop" />
-    <meta property="og:description" content="Discover a seamless shopping experience at Team8 Webshop. Explore our curated collection of various items, combining quality and style. Shop now and enjoy fast shipping, secure payments, and exceptional customer service!
-    " />
-    <meta property="og:image"
-        content="https://ephraimvc.github.io/chas-team8-webshop/src/images/webshop-share.webp" />
+  <meta name="description" content="Discover a seamless shopping experience at Team8 Webshop. Explore our curated collection of various items, combining quality and style. Shop now and enjoy fast shipping, secure payments, and exceptional customer service!">
+  <meta property="og:url" content="https://ephraimvc.github.io/chas-team8-webshop/pages/cart.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Team8 Webshop" />
+  <meta property="og:description" content="Discover a seamless shopping experience at Team8 Webshop. Explore our curated collection of various items, combining quality and style. Shop now and enjoy fast shipping, secure payments, and exceptional customer service!" />
+  <meta property="og:image" content="https://ephraimvc.github.io/chas-team8-webshop/src/images/webshop-share.webp" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCST1VL486"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+  <link rel="stylesheet" href="../dist/styles.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="../src/js/cart.js" type="module"></script>
+  <script src="../src/js/cartFunctions.js" type="module"></script>
 
-        gtag('config', 'G-LCST1VL486');
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCST1VL486"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-LCST1VL486');
+  </script>
 </head>
 
-<body>
-    <header>
-        <h1 class="cartTitle">Cart</h1>
-        <span id="itemCounter">(4 items)</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-            </ul>
-        </nav>
-        <button id=""> X </button>
-    </header>
-    <main>
-        <section class="cartContainer">
-            <section class="cart_listWrapper">
-                <div class="cart_list">
-                    <ul class="ul">
-                    </ul>
-                </div>
-                <section class="cart_priceWrapper">
-                    <div>
-                        <p>Subtotal:</p>
-                        <h3 class="cart_totalAmount">$ </h3>
-                    </div>
-                    <button class="cart_checkoutButton">Proceed to payment</button>
-                </section>
-            </section>
+<body class="cart-page">
+  <header>
+    <div class="header-inner">
+      <h2 class="page-title">
+        Cart
+        <span id="item-count"></span>
+      </h2>
+      <a href="../index.html" class="close cta-inverted icon-only">
+        <img src="../src/images/icons/close-drk.svg" width="24" height="24" alt="Close">
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section id="cart-container" class="hide">
+      <div class="cart-inner">
+        <ul id="cart-item-list"></ul>
+
+        <section class="cart-footer">
+          <div class="cart-subtotal">
+            <p>Subtotal:</p>
+            <h3 class="cart_totalAmount">$ </h3>
+          </div>
+
+          <button class="cta custom cart_checkoutButton">
+            <img src="../src/images/icons/credit-card-lgt.svg" width="24" height="24" alt="Chevron down">
+            Proceed to payment
+          </button>
         </section>
-    </main>
+      </div>
+    </section>
 
-    <script src="/src/js/cart.js" type="module"></script>
-    <script src="/src/js/cartFunctions.js" type="module"></script>
+    <section id="empty-cart" class="hide">
+      <div class="empty-cart-inner">
+        <img src="../src/images/empty-cart.svg" width="200" height="200" alt="Empty cart">
+
+        <div class="empty-cart-content">
+          <h2>Your cart is currently empty</h2>
+          <p>
+            Continue shopping and, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit, ante a mollis sagittis,
+          </p>
+        </div>
+
+        <a href="../index.html" class="cta custom cart_checkoutButton">
+          <img src="../src/images/icons/shopping-bag-lgt.svg" width="24" height="24" alt="Chevron down">
+          Continue shopping
+        </a>
+      </div>
+    </section>
+  </main>
 </body>
-
 </html>
