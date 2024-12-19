@@ -18,12 +18,15 @@ function productModal(fetchedProducts, productId) {
           <label class="badge close-modal" data-cat="${item.category}">${item.category}</label>
           <h3 class="modal-content-title">${item.title}</h3>
           <p>${item.description}</p>
-          <p class="product-price">$${item.price}</p>
+          <!-- p class="product-price">$${item.price}</p -->
           <div class="product-footer">
             <div class="quantity-selector">
-              <button class="btn minus">-</button>
-              <input type="number" class="quantity" value="1" min="1">
-              <button class="btn plus">+</button>
+              <p class="product-price">$${item.price}</p>
+              <!--
+                <button class="btn minus">-</button>
+                <input type="number" class="quantity" value="1" min="1">
+                <button class="btn plus">+</button>
+              -->
             </div>
             <p class="product-rating">
               <img src="./src/images/rating-star.svg" width="17" height="17" alt="Star rating">
