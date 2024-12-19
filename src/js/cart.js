@@ -1,4 +1,4 @@
-import { removeItem ,cartItemCountLS} from "./cartFunctions.js"
+import { removeItem, cartItemCountLS } from "./cartFunctions.js";
 
 const cartCountEl = document.getElementById("item-count");
 const listContainer = document.getElementById("cart-item-list");
@@ -24,8 +24,10 @@ const updateCartStatus = () => {
 
 // itemAmount.innerHTML = counter
 const showCartItems = (data) => {
-  listContainer.innerHTML = getCartItems.map(item => (
-    `<li class="cart-item" id=${item.id}>
+  listContainer.innerHTML = getCartItems
+    .map(
+      (item) =>
+        `<li class="cart-item" id=${item.id}>
       <figure class="product-img">
         <img src="${item.image}" alt="${item.title}" width="150" height="175" />
       </figure>
@@ -35,11 +37,7 @@ const showCartItems = (data) => {
         <p class="product-description truncate-1">${item.description}</p>
 
         <div class="product-footer">
-          <div class="itemCountWrapper">
-            <button class="itemCountBtn"> - </button>
-            <span class="itemCountCounter"></span>
-            <button class="itemCountBtn"> + </button>
-          </div>
+        
           <p class="itemPrice">$ ${item.price} </p>
         </div>
       </div>
@@ -48,8 +46,15 @@ const showCartItems = (data) => {
         <img src="../src/images/icons/trash-drk.svg" width="24" height="24" alt="Close">
       </button>
     </li>`
-  )).join(" ")
-}
+    )
+    .join(" ");
+};
+
+const total = () => {
+  totalPrice.textContent =
+    "$" + getCartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+};
+total();
 
 const setupDeleteButtons = () => {
   const deleteBtn = listContainer.querySelectorAll("button");
@@ -63,6 +68,7 @@ const setupDeleteButtons = () => {
       showCartItems(getCartItems);
       setupDeleteButtons();
       updateCartStatus();
+      total();
     });
   });
 };
@@ -72,7 +78,6 @@ showCartItems(getCartItems);
 setupDeleteButtons();
 updateCartStatus();
 
-
 // const addBtn = listContainer.querySelectorAll("#countPlus");
 //  addBtn.forEach((btn) => {
 //     btn.addEventListener("click", () => {
@@ -80,8 +85,6 @@ updateCartStatus();
 //         console.log("clicked");
 //     })
 //  })
-
-
 
 // --------------------------------------------------------------
 
