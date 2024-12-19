@@ -41,6 +41,13 @@ function productModal(fetchedProducts, productId) {
     </article>
   `;
 
+     gtag('event', `Open_modal`, {
+          'event_category': 'Open modal',
+          'event_label': 'Item i',
+          'value': 1,
+          'debug_mode': true,
+        });
+
   // Select Category
   modalWindow.querySelectorAll(".close-modal").forEach((item) =>
     item.addEventListener("click", (e) => {
