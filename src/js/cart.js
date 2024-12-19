@@ -35,11 +35,7 @@ const showCartItems = (data) => {
         <p class="product-description truncate-1">${item.description}</p>
 
         <div class="product-footer">
-          <div class="itemCountWrapper">
-            <button class="itemCountBtn"> - </button>
-            <span class="itemCountCounter"></span>
-            <button class="itemCountBtn"> + </button>
-          </div>
+        
           <p class="itemPrice">$ ${item.price} </p>
         </div>
       </div>
@@ -52,10 +48,11 @@ const showCartItems = (data) => {
     .join(" ");
 };
 
-totalPrice.textContent = "$" + getCartItems.reduce(
-  (acc, item) => acc + item.price,
-  0
-);
+const total = () => {
+  totalPrice.textContent =
+    "$" + getCartItems.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+};
+total();
 
 const setupDeleteButtons = () => {
   const deleteBtn = listContainer.querySelectorAll("button");
@@ -69,6 +66,7 @@ const setupDeleteButtons = () => {
       showCartItems(getCartItems);
       setupDeleteButtons();
       updateCartStatus();
+      total();
     });
   });
 };
