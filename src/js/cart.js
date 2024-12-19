@@ -24,7 +24,7 @@ const updateCartStatus = () => {
 
 // itemAmount.innerHTML = counter
 const showCartItems = (data) => {
-  listContainer.innerHTML = getCartItems
+  listContainer.innerHTML = data
     .map(
       (item) =>
         `<li class="cart-item" id=${item.id}>
@@ -37,7 +37,6 @@ const showCartItems = (data) => {
         <p class="product-description truncate-1">${item.description}</p>
 
         <div class="product-footer">
-        
           <p class="itemPrice">$ ${item.price} </p>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import { getProducts } from "../services/apiService.js";
 import { getById } from "../cartFunctions.js";
 import { filterSelectEl, showItemsCount, displayProducts } from "../app.js";
 
