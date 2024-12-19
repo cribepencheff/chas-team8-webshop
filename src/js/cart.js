@@ -14,9 +14,11 @@ const updateCartStatus = () => {
   if (cartItemCountLS() > 0) {
     cartItemCount.classList.remove("hide");
     emptyCartEl.classList.add("hide");
+    cartCountEl.classList.remove("hide");
   } else {
     cartItemCount.classList.add("hide");
     emptyCartEl.classList.remove("hide");
+    cartCountEl.classList.add("hide");
   }
 };
 

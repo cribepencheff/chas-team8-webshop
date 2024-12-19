@@ -39,7 +39,7 @@
     transition: border-color $transition-settings;
     z-index: 0;
 
-    &.out-of-stock {
+    &.item-in-cart {
       position: relative;
       pointer-events: none;
 
@@ -55,7 +55,6 @@
         width: 100%;
         height: 100%;
         background: $color-white;
-        filter: grayscale(100%); 
         opacity: 0.6;
         z-index: 1;
       }

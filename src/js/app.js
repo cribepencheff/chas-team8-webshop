@@ -60,8 +60,6 @@ const displayProducts = () => {
     title.innerHTML = filterSelectEl.options[filterSelectEl.selectedIndex].text;
   });
 
-  
-
   const productsList = products
     .sort(compare || ((a, b) => 0))
     .filter((product) =>
@@ -71,7 +69,7 @@ const displayProducts = () => {
     )
     .map(
       (item) =>
-        `<article class="product ${getCartLS.find(duplicate => duplicate.id === item.id) ? "out-of-stock" : ""}">
+        `<article class="product ${getCartLS.find(duplicate => duplicate.id === item.id) && "item-in-cart"}">
           <figure class="show-modal" data-id="${item.id}">
             <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
           </figure>
@@ -106,10 +104,12 @@ const displayProducts = () => {
   });
 
   const productsButtons = itemsContainerEl.querySelectorAll("button");
+
   productsButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const productId = parseInt(e.target.dataset.id);
-      e.target.closest(".product").classList.add("out-of-stock");
+      // Add in cart class
+      e.target.closest(".product").classList.add("item-in-cart");
       getById(fetchedProducts, productId);
       showItemsCount();
     });

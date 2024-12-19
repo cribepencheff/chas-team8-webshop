@@ -59,6 +59,10 @@ function productModal(fetchedProducts, productId) {
       const catchId = parseInt(e.target.getAttribute("data-id"));
       getById(fetchedProducts, catchId);
       showItemsCount();
+
+      // Add "in cart" class
+      e.target.setAttribute("disabled", true);
+      document.querySelectorAll(".product")[catchId - 1].classList.add("item-in-cart");
     });
 
   document.body.appendChild(modalWindow);
