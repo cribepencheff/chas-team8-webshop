@@ -28,11 +28,11 @@ export let cartItemCountLS = () => {
           return null
     } 
 
-    const getCartLS = JSON.parse(localStorage.getItem("cartList"))
-    const compareItem = getCartLS.find(repeated => repeated.id === items.id)
+    const getCartLS = JSON.parse(localStorage.getItem("cartList"));
+    const compareItem = getCartLS.find(repeated => repeated.id === items.id);
     if (compareItem) {
 
-      alert("Items is already added in your cart. To increase the amount of the same item, please go to your cart.")
+      console.log("Items is already added in your cart. To increase the amount of the same item, please go to your cart.");
 
     } else { 
 

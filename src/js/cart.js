@@ -14,15 +14,17 @@ const updateCartStatus = () => {
   if (cartItemCountLS() > 0) {
     cartItemCount.classList.remove("hide");
     emptyCartEl.classList.add("hide");
+    cartCountEl.classList.remove("hide");
   } else {
     cartItemCount.classList.add("hide");
     emptyCartEl.classList.remove("hide");
+    cartCountEl.classList.add("hide");
   }
 };
 
 // itemAmount.innerHTML = counter
 const showCartItems = (data) => {
-  listContainer.innerHTML = getCartItems
+  listContainer.innerHTML = data
     .map(
       (item) =>
         `<li class="cart-item" id=${item.id}>
@@ -35,7 +37,6 @@ const showCartItems = (data) => {
         <p class="product-description truncate-1">${item.description}</p>
 
         <div class="product-footer">
-        
           <p class="itemPrice">$ ${item.price} </p>
         </div>
       </div>

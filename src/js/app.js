@@ -8,6 +8,7 @@ const sortSelectEl = document.getElementById("sort-select");
 const categoryTitleEl = document.querySelectorAll(".page-title");
 const itemsContainerEl = document.getElementById("items-container");
 const cartCountEl = document.getElementById("item-count");
+let getCartLS = JSON.parse(localStorage.getItem("cartList"));
 
 let showItemsCount = () => {
   // count the items in cart and show the count on the cart
@@ -68,7 +69,7 @@ const displayProducts = () => {
     )
     .map(
       (item) =>
-        `<article class="product">
+        `<article class="product ${getCartLS.find(duplicate => duplicate.id === item.id) && "item-in-cart"}">
           <figure class="show-modal" data-id="${item.id}">
             <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
           </figure>
@@ -103,10 +104,12 @@ const displayProducts = () => {
   });
 
   const productsButtons = itemsContainerEl.querySelectorAll("button");
+
   productsButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const productId = parseInt(e.target.dataset.id);
-      // console.log("Item ID: ", productId)
+      // Add in cart class
+      e.target.closest(".product").classList.add("item-in-cart");
       getById(fetchedProducts, productId);
       showItemsCount();
     });
