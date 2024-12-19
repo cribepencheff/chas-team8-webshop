@@ -2,7 +2,9 @@ import { getById } from "../cartFunctions.js";
 import { filterSelectEl, showItemsCount, displayProducts } from "../app.js";
 
 function productModal(fetchedProducts, productId) {
-  let item = fetchedProducts.find((product) => product.id === parseInt(productId));
+  let item = fetchedProducts.find(
+    (product) => product.id === parseInt(productId)
+  );
   const modalWindow = document.createElement("div");
   modalWindow.classList.add("modal", "modal-product");
   modalWindow.innerHTML = `
@@ -41,12 +43,12 @@ function productModal(fetchedProducts, productId) {
     </article>
   `;
 
-     gtag('event', `Open_modal`, {
-          'event_category': 'Open modal',
-          'event_label': 'Item i',
-          'value': 1,
-          'debug_mode': true,
-        });
+  gtag("event", `Open_modal`, {
+    event_category: "Modal_event",
+    event_label: "Open_modal",
+    value: 1,
+    debug_mode: true,
+  });
 
   // Select Category
   modalWindow.querySelectorAll(".close-modal").forEach((item) =>
@@ -71,7 +73,9 @@ function productModal(fetchedProducts, productId) {
 
       // Add "in cart" class
       e.target.setAttribute("disabled", true);
-      document.querySelectorAll(".product")[catchId - 1].classList.add("item-in-cart");
+      document
+        .querySelectorAll(".product")
+        [catchId - 1].classList.add("item-in-cart");
     });
 
   document.body.appendChild(modalWindow);
