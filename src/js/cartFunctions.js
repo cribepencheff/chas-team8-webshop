@@ -40,7 +40,7 @@ export let cartItemCountLS = () => {
       localStorage.setItem("cartList", JSON.stringify(getCartLS))
       cartItemCountLS()
       console.log("item is added to cart");
-      notificationBar("Successfully added to cart!");
+      notificationBar(`<img src="./src/images/icons/check-drk.svg" width="24" height="24" alt="Close">Successfully added to cart!`);
     }  
         return items
   }
