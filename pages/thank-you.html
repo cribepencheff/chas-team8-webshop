@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="webshop cart ">
-  <title>Team 8 | Webshop cart</title>
+  <title>Team 8 | Webshop payment</title>
 
   <link rel="icon" type="image/png" href="../src/favicon/favicon-96x96.png" sizes="96x96">
   <link rel="icon" type="image/svg+xml" href="../src/favicon/favicon.svg">
@@ -21,8 +21,7 @@
   <meta property="og:image" content="https://ephraimvc.github.io/chas-team8-webshop/src/images/webshop-share.webp">
 
   <link rel="stylesheet" href="../dist/styles.min.css">
-  <script src="../src/js/cart.js" type="module"></script>
-  <script src="../src/js/cartFunctions.js" type="module"></script>
+  <script src="../src/js/thank-you.js" type="module"></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LCST1VL486"></script>
@@ -38,48 +37,32 @@
   <header>
     <div class="header-inner">
       <h2 class="page-title">
-        Cart
+        Payment
         <span id="item-count" class="hide"></span>
       </h2>
-      <a href="../index.html" class="close cta-inverted icon-only">
+      <a href="../index.html" class="close cta-inverted icon-only reset-cart">
         <img src="../src/images/icons/close-drk.svg" width="24" height="24" alt="Close">
       </a>
     </div>
   </header>
 
   <main>
-    <section id="cart-container">
-      <h2 class="hide">Cart container</h2>
-      <div class="cart-inner">
-        <ul id="cart-item-list"></ul>
-
-        <section class="cart-footer">
-          <div class="cart-subtotal">
-            <p>Subtotal:</p>
-            <h3 class="cart_totalAmount">$ </h3>
-          </div>
-
-          <a href="./thank-you.html" class="cta custom">
-            <img src="../src/images/icons/credit-card-lgt.svg" width="24" height="24" alt="Payment icon">
-            Proceed to payment
-          </a>
-        </section>
-      </div>
-    </section>
-
-    <section id="empty-cart" class="hide">
-      <h2 class="hide">Empty cart</h2>
+    <section id="empty-cart">
+      <h2 class="hide">Thank you</h2>
       <div class="empty-cart-inner">
-        <img src="../src/images/empty-cart.svg" width="200" height="200" alt="Empty cart">
+        <img src="../src/images/thank-you.svg" width="200" height="200" alt="Empty cart">
 
         <div class="empty-cart-content">
-          <h2>Your cart is currently empty</h2>
+          <h2>
+            Thank you!
+            <br>Order #123456 successfull
+          </h2>
           <p>
-            Your cart is currently empty. Continue shopping to find the perfect products for you.
+            Thank you for your order, we sent a detailed confirmation to your e-mail address: [your@email.com].
           </p>
         </div>
 
-        <a href="../index.html" class="cta custom">
+        <a href="../index.html" class="cta custom reset-cart">
           <img src="../src/images/icons/shopping-bag-lgt.svg" width="24" height="24" alt="Shopping cart">
           Continue shopping
         </a>
