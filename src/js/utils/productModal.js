@@ -43,11 +43,10 @@ function productModal(fetchedProducts, productId) {
     </article>
   `;
 
-  gtag("event", "Open_modal", {
-    event_category: "Modal_event",
-    event_label: "Open_modal",
-    value: 1,
-    // debug_mode: true,
+  gtag('event', 't8_open_modal', {
+    'event_category': 'Modal event',
+    'event_label': 'Opens modal',
+    'product_id': item.id
   });
 
   // Select Category

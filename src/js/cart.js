@@ -68,11 +68,10 @@ const setupDeleteButtons = () => {
       setupDeleteButtons();
       updateCartStatus();
       total();
-      gtag('event', `deleted item `, {
+      gtag('event', 't8_delete_from_cart', {
         'event_category': 'Cart Events',
-        'event_label': 'Item is added to cart',
-        'value': 1,
-        // 'debug_mode': true,
+        'event_label': 'Deletes item from cart',
+        'product_id': itemId
       });
     });
   });
