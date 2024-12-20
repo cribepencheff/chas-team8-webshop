@@ -72,7 +72,7 @@ const setupDeleteButtons = () => {
         'event_category': 'Cart Events',
         'event_label': 'Item is added to cart',
         'value': 1,
-        'debug_mode': true,
+        // 'debug_mode': true,
       });
     });
   });
