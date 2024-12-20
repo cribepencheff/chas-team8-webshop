@@ -81,17 +81,3 @@ const setupDeleteButtons = () => {
 showCartItems(getCartItems);
 setupDeleteButtons();
 updateCartStatus();
-
-// const addBtn = listContainer.querySelectorAll("#countPlus");
-//  addBtn.forEach((btn) => {
-//     btn.addEventListener("click", () => {
-
-//         console.log("clicked");
-//     })
-//  })
-
-// --------------------------------------------------------------
-
-//  TO FIX
-//  - items are not dissapearing when runing the removeitem, only removes from LS
-//  - add and substract item function

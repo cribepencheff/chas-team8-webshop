@@ -3,8 +3,6 @@ import { notificationBar } from "./utils/notificationBar.js"
 if (!localStorage.getItem("cartList")) {
     localStorage.setItem("cartList", JSON.stringify([]))
 }
-// --------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------
 
 export let cartItemCountLS = () => {
     const getLSitems = JSON.parse(localStorage.getItem("cartList"))
@@ -13,8 +11,7 @@ export let cartItemCountLS = () => {
     }
     return getLSitems.length
  }
-// --------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------
+
 // Get the clicked item by id
   export const getById = (data, id) => {
 
@@ -22,8 +19,9 @@ export let cartItemCountLS = () => {
           console.error("data not loaded yet")
           return null
       }
-        const items = data.find((item) => item.id === id) //if globaldata is populated then find the item with matching id
-      if (!items) {                                           // compares the id from the clicked item with and looks for the same one trought globaldata
+    const items = data.find((item) => item.id === id) //if globaldata is populated then find the item with matching id
+    
+    if (!items) {// compares the id from the clicked item with and looks for the same one trought globaldata
           console.warn(`item with id:${id} is not found `);
           return null
     }
@@ -52,8 +50,6 @@ export let cartItemCountLS = () => {
         return items
   }
 
-// --------------------------------------------------------------------------------------------------
-// --------------------------------------------------------------------------------------------------
 // delete from cart function
 export const removeItem = (id) => {
   const getCartLS = JSON.parse(localStorage.getItem("cartList"));
