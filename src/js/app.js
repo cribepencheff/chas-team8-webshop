@@ -91,11 +91,14 @@ const displayProducts = () => {
               <button data-id="${item.id}" class="cta-inverted icon-only">
                 <img src="./src/images/icons/shopping-bag-add-drk.svg" width="24" height="24" alt="Add to cart">
               </button>
-              <p class="product-price">$${item.price}</p>
-              <p class="product-rating">
-                <img src="./src/images/rating-star.svg" width="17" height="17" alt="Star rating">
-                ${item.rating.rate}
-              </p>
+
+              <div class="product-details">
+                <p class="product-price">$${item.price}</p>
+                <p class="product-rating">
+                  <img src="./src/images/rating-star.svg" width="17" height="17" alt="Star rating">
+                  ${item.rating.rate}
+                </p>
+              </div>
             </div>
           </div>
         </article>`
