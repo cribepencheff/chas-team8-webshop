@@ -90,3 +90,51 @@ You can view the live deployed Webshop site here:[Team8 Webshop] (https://ephrai
 
 ## Design Skiss
 <!-- Add picture from figma -->
+
+
+
+
+
+### Group Reflection on event tracking in Google Analytics:
+
+Our group opinion is that Google Analytics is an excellent tool for understanding patterns of user interactions on a website. It is a deeper analysis of people’s behaviour and is particularly valuable for businesses looking to improve and grow by making the right changes to their websites.
+
+
+
+### Advantages:
+-  Understanding users behaviour: Event tracking helps uncover which parts of a website drive user actions and engagement. Tracking events like button clicks, scrolls, and form submissions is essential for measuring how well a website engages its users. Based on this data, businesses can make necessary changes to improve user experience and ultimately boost performance.
+- Goal measurments: Google Analytics provides a way to assess whether user interactions align with a company’s business plan. It highlights areas that need improvement or adjustment to ensure that company goals are met. For instance, if a goal is to increase newsletter sign-ups, tracking form submissions can show whether this goal is being achieved. 
+- Data-Driven Decisions:  Insights from event tracking empower teams to make informed decisions. By analysing trends and patterns, businesses can identify which parts of their website perform well and which need improvement. This helps allocate resources efficiently and prioritize enhancements that have the greatest impact.
+- Real-Time Analytics: Real-time analytics allow teams to monitor the performance of newly released features, products, or campaigns as they happen. This immediate feedback enables quick decision-making and adjustments to optimise outcomes.
+
+### Limitations:
+- Technical:  Implementing event tracking requires a solid understanding of Google Analytics and technical expertise, which can be challenging for non-technical teams.
+-  Compliance and Privacy Concerns: User behaviour tracking must comply with data protection laws like GDPR or CCPA. These regulations may limit certain types of data collection and require careful implementation to ensure compliance.
+- Accurate Configuration:  Events must be configured properly, with correct labeling and logic, to avoid collecting inaccurate or misleading data. Mistakes in setup can result in data that cannot be trusted for decision-making.
+
+
+### Summary:
+
+Google Analytics is a powerful tool that supports business development by providing detailed insights into user behaviour. It is particularly valuable for making data-driven decisions in teams. By understanding how users interact with a website, teams can adjust their strategies, improve the user experience, and align their plans with user needs and business goals. While there are challenges, such as the need for technical skills and ensuring compliance, the benefits of using Google Analytics far outweigh these limitations. It is an indispensable tool for any team looking to optimize their website and make informed, impactful changes.
+
+
+
+
+### Our Tags:
+
+
+<!-- Add picture from Analytics -->
+
+## t8_Add_to_cart: 
+This tag is used to track when users add items to their shopping cart. It gives us a better understanding of what products are catching people’s attention and helps us learn more about their shopping habits.
+
+
+
+## t8_Modal_Open
+This tag is designed to track user interest in different products and their detailed descriptions on our website. It helps us understand which products capture the most attention and how users engage with additional product information.
+
+
+
+
+## t8_Delete_from_cart
+This tag is created to track user behaviour when removing items from their shopping cart. It provides insights into user reactions, helping us identify patterns or potential pain points during the purchase process.
