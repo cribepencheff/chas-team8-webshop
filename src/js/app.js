@@ -26,7 +26,8 @@ const loadProducts = async () => {
   itemsContainerEl.classList.add("hide");
 
   try {
-    fetchedProducts = JSON.parse(localStorage.getItem("fetchedItems")) || await getProducts();
+    fetchedProducts =
+      JSON.parse(localStorage.getItem("fetchedItems")) || (await getProducts());
     localStorage.setItem("fetchedItems", JSON.stringify(fetchedProducts));
     unsortedProducts = Array.from(fetchedProducts);
     displayProducts(fetchedProducts);
@@ -56,7 +57,7 @@ const displayProducts = () => {
       compare = null;
   }
 
-  categoryTitleEl.forEach(title => {
+  categoryTitleEl.forEach((title) => {
     title.innerHTML = filterSelectEl.options[filterSelectEl.selectedIndex].text;
   });
 
@@ -69,14 +70,23 @@ const displayProducts = () => {
     )
     .map(
       (item) =>
-        `<article class="product ${getCartLS.find(duplicate => duplicate.id === item.id) && "item-in-cart"}">
+        `<article class="product ${
+          getCartLS.find((duplicate) => duplicate.id === item.id) &&
+          "item-in-cart"
+        }">
           <figure class="show-modal" data-id="${item.id}">
-            <img class="product-img" src="${item.image}" alt="${item.title}" width="150" height="175" />
+            <img class="product-img" src="${item.image}" alt="${
+          item.title
+        }" width="150" height="175" />
           </figure>
 
           <div class="product-content">
-            <h3 class="product-content-title truncate show-modal" data-id="${item.id}">${item.title}</h3>
-            <p class="product-content-descrition truncate">${item.description}</p>
+            <h3 class="product-content-title truncate show-modal" data-id="${
+              item.id
+            }">${item.title}</h3>
+            <p class="product-content-descrition truncate">${
+              item.description
+            }</p>
             <div class="product-content-footer">
               <button data-id="${item.id}" class="cta-inverted icon-only">
                 <img src="./src/images/icons/shopping-bag-add-drk.svg" width="24" height="24" alt="Add to cart">
@@ -99,7 +109,9 @@ const displayProducts = () => {
   const productArticle = itemsContainerEl.querySelectorAll(".show-modal");
   productArticle.forEach((product) => {
     product.addEventListener("click", () => {
+   
       productModal(fetchedProducts, product.dataset.id);
+    
     });
   });
 
@@ -120,4 +132,4 @@ loadProducts();
 filterSelectEl.addEventListener("change", displayProducts);
 sortSelectEl.addEventListener("change", displayProducts);
 
-export { filterSelectEl, cartCountEl, displayProducts, showItemsCount }
+export { filterSelectEl, cartCountEl, displayProducts, showItemsCount };
