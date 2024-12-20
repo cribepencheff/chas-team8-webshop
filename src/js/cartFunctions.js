@@ -42,11 +42,12 @@ export let cartItemCountLS = () => {
       console.log("item is added to cart");
       notificationBar(`<img src="./src/images/icons/check-drk.svg" width="24" height="24" alt="Close">Successfully added to cart!`);
 
-      gtag('event', `add_item_to_cart_id${id}`, {
+      gtag('event', 'add_item_to_cart', {
         'event_category': 'Cart Events',
         'event_label': 'Item is added to cart',
         'value': 1,
-        'debug_mode': true,
+        'product_id': `${id}`
+        // 'debug_mode': true,
       });
     }  
         return items
