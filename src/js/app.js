@@ -34,7 +34,7 @@ const loadProducts = async () => {
     showItemsCount();
   } catch (error) {
     console.log(error);
-    itemsContainerEl.innerHTML = `<p>Failed loading products. <br> Try Agin later.</p>`;
+    itemsContainerEl.innerHTML = `<p>Failed loading products. Try Agin later.</p>`;
     loaderEl.classList.add("hide");
     itemsContainerEl.classList.remove("hide");
   }

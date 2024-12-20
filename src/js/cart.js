@@ -61,7 +61,6 @@ const setupDeleteButtons = () => {
   deleteBtn.forEach((btn) => {
     btn.addEventListener("click", (event) => {
       const itemId = parseInt(event.target.dataset.id);
-      console.log(itemId);
       removeItem(itemId);
       getCartItems = JSON.parse(localStorage.getItem("cartList")) || [];
       showCartItems(getCartItems);
