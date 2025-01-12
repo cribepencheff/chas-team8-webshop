@@ -39,8 +39,9 @@
     transition: border-color $transition-settings;
     z-index: 0;
 
-    &.item-in-cart {
+    &.max-reached {
       position: relative;
+      user-select: none;
       pointer-events: none;
 
       .product-content-footer {
@@ -60,15 +61,14 @@
       }
 
       &::after {
-        content: "ITEM IN CART";
-        padding-inline: 1rem;
-        white-space: nowrap;
+        content: "MAX ITEMS \A ADDED";
+        white-space: pre-line;
         text-align: center;
         position: absolute;
         z-index: 2;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        width: 100%;
+        transform: translateY(-50%);
         font-family: $font-family-bold;
         font-size: $text-body-sm;
         letter-spacing: 0.1rem;

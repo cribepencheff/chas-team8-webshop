@@ -1,10 +1,11 @@
-import { getById } from "../cartFunctions.js";
+import { getById, cartItemQuantityLS } from "../cartFunctions.js";
 import { filterSelectEl, showItemsCount, displayProducts } from "../app.js";
 
 function productModal(fetchedProducts, productId) {
   let item = fetchedProducts.find(
     (product) => product.id === parseInt(productId)
   );
+
   const modalWindow = document.createElement("div");
   modalWindow.classList.add("modal", "modal-product");
   modalWindow.innerHTML = `
@@ -19,15 +20,9 @@ function productModal(fetchedProducts, productId) {
           <label class="badge close-modal" data-cat="${item.category}">${item.category}</label>
           <h3 class="modal-content-title">${item.title}</h3>
           <p>${item.description}</p>
-          <!-- p class="product-price">$${item.price}</p -->
           <div class="product-footer">
             <div class="quantity-selector">
-              <p class="product-price">$${item.price}</p>
-              <!--
-                <button class="btn minus">-</button>
-                <input type="number" class="quantity" value="1" min="1">
-                <button class="btn plus">+</button>
-              -->
+              <p class="product-price">$${item.price.toFixed(2)}</p>
             </div>
             <p class="product-rating">
               <img src="./src/images/rating-star.svg" width="17" height="17" alt="Star rating">
@@ -35,19 +30,13 @@ function productModal(fetchedProducts, productId) {
               <span>${item.rating.count} ratings</span>
             </p>
           </div>
-          <button class="cta custom add-to-cart-btn" data-id="${item.id}">
+          <button class="cta custom add-to-cart-btn" data-id="${item.id}" data-stock="5">
             <img src="./src/images/icons/shopping-bag-add-lgt.svg" width="24" height="24" alt="Chevron down"> Add to cart
           </button>
         </div>
       </div>
     </article>
   `;
-
-  gtag('event', 't8_open_modal', {
-    'event_category': 'Modal event',
-    'event_label': 'Opens modal',
-    'product_id': item.id
-  });
 
   // Select Category
   modalWindow.querySelectorAll(".close-modal").forEach((item) =>
@@ -66,15 +55,17 @@ function productModal(fetchedProducts, productId) {
   modalWindow
     .querySelector(".add-to-cart-btn")
     .addEventListener("click", (e) => {
-      const catchId = parseInt(e.target.getAttribute("data-id"));
-      getById(fetchedProducts, catchId);
+      const catchId = parseInt(e.target.dataset.id);
+      const catchStock = parseInt(e.target.dataset.stock);
+
+      getById(fetchedProducts, catchId, catchStock);
       showItemsCount();
 
-      // Add "in cart" class
-      e.target.setAttribute("disabled", true);
-      document
-        .querySelectorAll(".product")
-        [catchId - 1].classList.add("item-in-cart");
+      // Add "Max added" class
+      if (catchStock === cartItemQuantityLS(catchId)) {
+        e.target.setAttribute("disabled", true);
+        e.target.textContent = 'Max items added';
+      }
     });
 
   document.body.appendChild(modalWindow);

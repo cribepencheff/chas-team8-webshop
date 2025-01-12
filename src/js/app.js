@@ -1,6 +1,6 @@
 import { getProducts } from "./services/apiService.js";
 import { productModal } from "./utils/productModal.js";
-import { getById, cartItemCountLS } from "./cartFunctions.js";
+import { getById, cartItemCountLS, cartItemQuantityLS } from "./cartFunctions.js";
 
 const loaderEl = document.getElementById("loader");
 const filterSelectEl = document.getElementById("filter-select");
@@ -27,7 +27,7 @@ const loadProducts = async () => {
 
   try {
     fetchedProducts =
-      JSON.parse(localStorage.getItem("fetchedItems")) || (await getProducts());
+      JSON.parse(localStorage.getItem("fetchedItems")) || await getProducts();
     localStorage.setItem("fetchedItems", JSON.stringify(fetchedProducts));
     unsortedProducts = Array.from(fetchedProducts);
     displayProducts(fetchedProducts);
@@ -63,37 +63,30 @@ const displayProducts = () => {
 
   const productsList = products
     .sort(compare || ((a, b) => 0))
-    .filter((product) =>
-      filterSelectEl.value !== "all"
-        ? product.category === filterSelectEl.value
-        : product
+    .filter((product) => filterSelectEl.value !== "all"
+      ? product.category === filterSelectEl.value
+      : product
     )
-    .map(
-      (item) =>
-        `<article class="product ${
-          getCartLS.find((duplicate) => duplicate.id === item.id) &&
-          "item-in-cart"
-        }">
-          <figure class="show-modal" data-id="${item.id}">
+    .map(item => (
+        `<article data-id="${item.id}" data-stock="5" class="product ${cartItemQuantityLS(item.id) === 5 && 'max-reached'}">
+          <figure class="show-modal">
             <img class="product-img" src="${item.image}" alt="${
           item.title
         }" width="150" height="175" />
           </figure>
 
           <div class="product-content">
-            <h3 class="product-content-title truncate show-modal" data-id="${
-              item.id
-            }">${item.title}</h3>
+            <h3 class="product-content-title truncate show-modal">${item.title}</h3>
             <p class="product-content-descrition truncate">${
               item.description
             }</p>
             <div class="product-content-footer">
-              <button data-id="${item.id}" class="cta-inverted icon-only">
+              <button class="cta-inverted icon-only">
                 <img src="./src/images/icons/shopping-bag-add-drk.svg" width="24" height="24" alt="Add to cart">
               </button>
 
               <div class="product-details">
-                <p class="product-price">$${item.price}</p>
+                <p class="product-price">$${item.price.toFixed(2)}</p>
                 <p class="product-rating">
                   <img src="./src/images/rating-star.svg" width="17" height="17" alt="Star rating">
                   ${item.rating.rate}
@@ -102,7 +95,7 @@ const displayProducts = () => {
             </div>
           </div>
         </article>`
-    )
+    ))
     .join("");
 
   itemsContainerEl.innerHTML = productsList;
@@ -112,9 +105,7 @@ const displayProducts = () => {
   const productArticle = itemsContainerEl.querySelectorAll(".show-modal");
   productArticle.forEach((product) => {
     product.addEventListener("click", () => {
-   
-      productModal(fetchedProducts, product.dataset.id);
-    
+      productModal(fetchedProducts, product.closest(".product").dataset.id);
     });
   });
 
@@ -122,11 +113,23 @@ const displayProducts = () => {
 
   productsButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
-      const productId = parseInt(e.target.dataset.id);
-      // Add in cart class
-      e.target.closest(".product").classList.add("item-in-cart");
-      getById(fetchedProducts, productId);
+
+      const productEl = e.target.closest(".product");
+      const productId = parseInt(productEl.dataset.id);
+      const productStock = parseInt(productEl.dataset.stock);
+
+      // Add to cart
+      getById(fetchedProducts, productId, productStock);
       showItemsCount();
+
+      // Get updated localstorage
+      getCartLS = JSON.parse(localStorage.getItem("cartList"));
+      const itemInCart = getCartLS.find(item => item.id === productId);
+
+      // Disable product if out of stock
+      if (itemInCart.quantity >= productStock) {
+        productEl.classList.add('max-reached');
+      }
     });
   });
 };
