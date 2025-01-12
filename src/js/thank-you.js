@@ -5,6 +5,6 @@ resetBtnsEl.forEach( (btn) => {
     e.preventDefault();
 
     localStorage.removeItem("cartList");
-    location.href = "../index.html";
+    location.href = "./index.html";
   })
 })

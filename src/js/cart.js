@@ -68,7 +68,7 @@ const showCartItems = (data) => {
           </div>
 
           <button class="cta-inverted icon-only delete-item">
-            <img src="../src/images/icons/trash-drk.svg" width="24" height="24" alt="Close">
+            <img src="./src/images/icons/trash-drk.svg" width="24" height="24" alt="Close">
           </button>
         </li>`
       )
