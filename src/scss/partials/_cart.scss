@@ -82,6 +82,10 @@ div[class$=inner].cart-inner {
       color: $color-heading;
     }
 
+    .product-description {
+      word-break: break-all;
+    }
+
     .product-footer {
       display: flex;
       justify-content: space-between;
