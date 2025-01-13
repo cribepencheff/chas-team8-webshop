@@ -97,9 +97,7 @@ Google Analytics is a powerful tool that supports business development by provid
 
 
 ## 📈 Our Google Analytics Tags:
-<!--
 ![Google Analytics screenshot](https://github.com/cribepencheff/chas-team8-webshop/raw/main/analytics.webp)
--->
 
 ###  t8_add_to_cart:
 This tag is used to track when users add items to their shopping cart. It gives us a better understanding of what products are catching people’s attention and helps us learn more about their shopping habits.
