@@ -78,7 +78,6 @@ Discover the Team8 Webshop. It's an user-friendly e-commerce platform offering a
 ## 🎨 Design
 ![Design screenshot](https://github.com/cribepencheff/chas-team8-webshop/raw/main/team8-webshop.webp)
 
-<!--
 ## Group Reflection on event tracking in Google Analytics:
 Our group opinion is that Google Analytics is an excellent tool for understanding patterns of user interactions on a website. It is a deeper analysis of people’s behaviour and is particularly valuable for businesses looking to improve and grow by making the right changes to their websites.
 
@@ -96,7 +95,7 @@ Our group opinion is that Google Analytics is an excellent tool for understandin
 ### Summary:
 Google Analytics is a powerful tool that supports business development by providing detailed insights into user behaviour. It is particularly valuable for making data-driven decisions in teams. By understanding how users interact with a website, teams can adjust their strategies, improve the user experience, and align their plans with user needs and business goals. While there are challenges, such as the need for technical skills and ensuring compliance, the benefits of using Google Analytics far outweigh these limitations. It is an indispensable tool for any team looking to optimize their website and make informed, impactful changes.
 
-
+<!--
 ## Our Google Analytics Tags:
 ![Google Analytics screenshot](https://github.com/cribepencheff/chas-team8-webshop/raw/main/analytics.webp)
 
