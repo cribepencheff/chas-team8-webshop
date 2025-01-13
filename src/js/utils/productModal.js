@@ -38,6 +38,12 @@ function productModal(fetchedProducts, productId) {
     </article>
   `;
 
+  gtag('event', 't8_open_modal', {
+    'event_category': 'Modal event',
+    'event_label': 'Opens modal',
+    'product_id': item.id
+  });
+
   // Select Category
   modalWindow.querySelectorAll(".close-modal").forEach((item) =>
     item.addEventListener("click", (e) => {

@@ -95,11 +95,13 @@ Our group opinion is that Google Analytics is an excellent tool for understandin
 ### Summary:
 Google Analytics is a powerful tool that supports business development by providing detailed insights into user behaviour. It is particularly valuable for making data-driven decisions in teams. By understanding how users interact with a website, teams can adjust their strategies, improve the user experience, and align their plans with user needs and business goals. While there are challenges, such as the need for technical skills and ensuring compliance, the benefits of using Google Analytics far outweigh these limitations. It is an indispensable tool for any team looking to optimize their website and make informed, impactful changes.
 
-<!--
-## Our Google Analytics Tags:
-![Google Analytics screenshot](https://github.com/cribepencheff/chas-team8-webshop/raw/main/analytics.webp)
 
-### t8_add_to_cart:
+## 📈 Our Google Analytics Tags:
+<!--
+![Google Analytics screenshot](https://github.com/cribepencheff/chas-team8-webshop/raw/main/analytics.webp)
+-->
+
+###  t8_add_to_cart:
 This tag is used to track when users add items to their shopping cart. It gives us a better understanding of what products are catching people’s attention and helps us learn more about their shopping habits.
 
 ### t8_open_modal
@@ -107,7 +109,6 @@ This tag is designed to track user interest in different products and their deta
 
 ### t8_delete_from_cart
 This tag is created to track user behaviour when removing items from their shopping cart. It provides insights into user reactions, helping us identify patterns or potential pain points during the purchase process.
--->
 
 ## 💾 Setting up the Development Environment (SCSS & Minified CSS)
 ### Installation

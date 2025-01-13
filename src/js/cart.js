@@ -146,6 +146,12 @@ const setupDeleteButtons = () => {
       updateCartStatus();
       total();
 
+      gtag('event', 't8_delete_from_cart', {
+        'event_category': 'Cart Events',
+        'event_label': 'Deletes item from cart',
+        'product_id': itemId
+      });
+
       notificationBar(`<img src="./src/images/icons/check-drk.svg" width="24" height="24" alt="Close">Item removed!`);
     });
   });

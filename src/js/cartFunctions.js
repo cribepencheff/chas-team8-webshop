@@ -40,6 +40,12 @@ export const getById = (data, id, stock) => {
     notificationBar(`<img src="./src/images/icons/check-drk.svg" width="24" height="24" alt="Close">Successfully added to cart!`);
   }
 
+  gtag('event', 't8_add_to_cart', {
+    'event_category': 'Cart Events',
+    'event_label': 'Adds item to cart',
+    'product_id': id
+  });
+
   // Save to localstorage & Update cart
   localStorage.setItem("cartList", JSON.stringify(cartLS));
   cartItemCountLS();
